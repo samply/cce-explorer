@@ -1,0 +1,128 @@
+[
+  {
+    "fieldType": "group",
+    "key": "patient",
+    "name": "Patient",
+    "childCategories": [
+      {
+        "fieldType": "single-select",
+        "key": "gender",
+        "name": "Gender",
+        "system": "",
+        "type": "EQUALS",
+        "criteria": [
+          {
+            "key": "male",
+            "name": "Male"
+          },
+          {
+            "key": "female",
+            "name": "Female"
+          }
+        ]
+      },
+      {
+        "fieldType": "single-select",
+        "key": "75186-7",
+        "name": "Vital Status",
+        "system": "https://www.cancercoreeurope.eu/fhir/core/CodeSystem/VitalStatusCS",
+        "type": "EQUALS",
+        "criteria": [
+          {
+            "key": "alive",
+            "name": "Alive"
+          },
+          {
+            "key": "deceased",
+            "name": "Deceased"
+          },
+          {
+            "key": "unknown",
+            "name": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "fieldType": "group",
+    "key": "biosamples",
+    "name": "BioSamples",
+    "childCategories": [
+      {
+        "fieldType": "single-select",
+        "key": "sample-type",
+        "name": "Sample-Type",
+        "system": "",
+        "type": "EQUALS",
+        "criteria": [
+          {
+            "key": "whole-blood",
+            "name": "WholeBlood",
+            "description": "Whole Blood"
+          },
+          {
+            "key": "bone-marrow",
+            "name": "BoneMarrow",
+            "description": "Bone Marrow"
+          },
+          {
+            "key": "blood-plasma",
+            "name": "BloodPlasma",
+            "description": "Plasma"
+          },
+          {
+            "key": "blood-serum",
+            "name": "BloodSerum",
+            "description": "Serum"
+          },
+          {
+            "key": "csf-liquor",
+            "name": "CsfLiquor",
+            "description": "Liquor/CSF"
+          },
+          {
+            "key": "stool-faeces",
+            "name": "StoolFaeces",
+            "description": "Stool/Faeces"
+          },
+          {
+            "key": "urine",
+            "name": "Urine",
+            "description": "Urine"
+          },
+          {
+            "key": "tumor-tissue-ffpe",
+            "name": "TumorTissueFfpe",
+            "description": "Tumor Tissue (FFPE)"
+          },
+          {
+            "key": "normal-tissue-ffpe",
+            "name": "NormalTissueFfpe",
+            "description": "Normal Tissue (FFPE)"
+          },
+          {
+            "key": "tumor-tissue-frozen",
+            "name": "TumorTissueFrozen",
+            "description": "Tumor Tissue (Frozen)"
+          },
+          {
+            "key": "normal-tissue-frozen",
+            "name": "NormalTissueFrozen",
+            "description": "Normal Tissue (Frozen)"
+          },
+          {
+            "key": "dna",
+            "name": "Dna",
+            "description": "DNA"
+          },
+          {
+            "key": "rna",
+            "name": "Rna",
+            "description": "RNA"
+          }
+        ]
+      }
+    ]
+  }
+]
