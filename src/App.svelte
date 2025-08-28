@@ -1,6 +1,6 @@
 <script lang="ts">
   import "./app.css";
-  import type { Catalogue } from "@samply/lens";
+  import type { Catalogue, SpotResult } from "@samply/lens";
   import {
     setOptions,
     setCatalogue,
@@ -12,9 +12,65 @@
     buildLibrary,
     buildMeasure,
   } from "@samply/lens";
+  import {
+    VITAL_STATUS_LOINC_CODE,
+    getGenderCriteria,
+    getVitalStatusCriteria,
+  } from "$lib/catalogService";
+  import { translateAstToCql } from "./lib/ast-to-cql-translator";
+  import { measures } from "./lib/measures";
+  import { negotiate } from "./lib/project-manager";
   import { options } from "./lib/env-options";
   import { onMount } from "svelte";
+  import { SvelteMap } from "svelte/reactivity";
   import catalogueProd from "./config/catalogue.json";
+
+  let abortController = new AbortController();
+  
+  window.addEventListener("lens-search-triggered", () => {
+    abortController.abort();
+    abortController = new AbortController();
+
+    // AST to CQL translation
+    const cql = translateAstToCql(
+      getAst(),
+      false,
+      "DKTK_STRAT_DEF_IN_INITIAL_POPULATION",
+      measures,
+    );
+    const lib = buildLibrary(cql);
+    const measure = buildMeasure(
+      lib.url,
+      measures.map((m) => m.measure),
+    );
+
+    clearSiteResults();
+    const query = btoa(
+      JSON.stringify({
+        lang: "cql",
+        lib,
+        measure,
+      }),
+    );
+    querySpot(query, abortController.signal, (result: SpotResult) => {
+      const site = result.from.split(".")[1];
+      if (result.status === "claimed") {
+        markSiteClaimed(site);
+      } else if (result.status === "succeeded") {
+        const siteResult = JSON.parse(atob(result.body));
+        setSiteResult(site, siteResult);
+      } else {
+        console.error(
+          `Site ${site} failed with status ${result.status}:`,
+          result.body,
+        );
+      }
+    });
+  });
+
+  window.addEventListener("lens-negotiate-triggered", () => {
+    negotiate();
+  });
 
   onMount(() => {
     setOptions(options);
@@ -44,7 +100,7 @@
       hour: "2-digit",
       minute: "2-digit",
     });
-    a.download = `ccp-explorer-query-${formattedDate}.html`;
+    a.download = `cce-explorer-query-${formattedDate}.html`;
 
     document.body.appendChild(a);
     a.click();
@@ -52,6 +108,10 @@
   };
 
   let catalogueopen: boolean = false;
+
+  const genderHeaders: SvelteMap<string, string> = getGenderCriteria();
+  const vitalStatusHeaders: SvelteMap<string, string> =
+    getVitalStatusCriteria();
 </script>
 
 <header class="header">
@@ -120,6 +180,26 @@
         </div>
         <lens-catalogue toggle={{ collapsable: false, open: catalogueopen }}
         ></lens-catalogue>
+      </div>
+    </div>
+    <div class="charts">
+      <div class="chart-wrapper">
+        <lens-chart
+          title="Gender"
+          dataKey="gender"
+          chartType="pie"
+          displayLegends={true}
+          headers={genderHeaders}
+        ></lens-chart>
+      </div>
+      <div class="chart-wrapper">
+        <lens-chart
+          title="Vital Status"
+          dataKey=VITAL_STATUS_LOINC_CODE
+          chartType="pie"
+          displayLegends={true}
+          headers={vitalStatusHeaders}
+        ></lens-chart>
       </div>
     </div>
   </div>

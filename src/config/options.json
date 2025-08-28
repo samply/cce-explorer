@@ -1,3 +1,20 @@
 {
-    
+  "spotUrl": "http://localhost:8055",
+  "language": "en",
+  "siteMappings": {},
+  "chartOptions": {
+    "gender": {
+      "legendMapping": {
+        "male": "Male",
+        "female": "Female"
+      }
+    },
+    "75186-7": {
+      "hintText": [
+        "\"deceased\": a date of death is documented or the current age is greater than 123 years.",
+        "\"alive\": is assumed if no date of death is documented or the current age has not exceeded 123 years.",
+        "\"unknown\": No date of birth or death known."
+      ]
+    }
+  }
 }

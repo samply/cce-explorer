@@ -52,49 +52,19 @@
       {
         "fieldType": "single-select",
         "key": "sample-type",
-        "name": "Sample-Type",
+        "name": "Sample Type",
         "system": "",
         "type": "EQUALS",
         "criteria": [
           {
-            "key": "whole-blood",
-            "name": "WholeBlood",
-            "description": "Whole Blood"
-          },
-          {
-            "key": "bone-marrow",
-            "name": "BoneMarrow",
-            "description": "Bone Marrow"
-          },
-          {
-            "key": "blood-plasma",
-            "name": "BloodPlasma",
-            "description": "Plasma"
-          },
-          {
-            "key": "blood-serum",
-            "name": "BloodSerum",
-            "description": "Serum"
-          },
-          {
-            "key": "csf-liquor",
-            "name": "CsfLiquor",
-            "description": "Liquor/CSF"
-          },
-          {
-            "key": "stool-faeces",
-            "name": "StoolFaeces",
-            "description": "Stool/Faeces"
-          },
-          {
-            "key": "urine",
-            "name": "Urine",
-            "description": "Urine"
-          },
-          {
             "key": "tumor-tissue-ffpe",
-            "name": "TumorTissueFfpe",
+            "name": "Tumor Tissue (FFPE)",
             "description": "Tumor Tissue (FFPE)"
+          },
+          {
+            "key": "tumor-tissue-frozen",
+            "name": "Tumor Tissue (Frozen)",
+            "description": "Tumor Tissue (Frozen)"
           },
           {
             "key": "normal-tissue-ffpe",
@@ -102,23 +72,53 @@
             "description": "Normal Tissue (FFPE)"
           },
           {
-            "key": "tumor-tissue-frozen",
-            "name": "TumorTissueFrozen",
-            "description": "Tumor Tissue (Frozen)"
-          },
-          {
             "key": "normal-tissue-frozen",
-            "name": "NormalTissueFrozen",
+            "name": "Normal Tissue (Frozen)",
             "description": "Normal Tissue (Frozen)"
           },
           {
+            "key": "whole-blood",
+            "name": "Whole Blood",
+            "description": "Whole Blood"
+          },
+          {
+            "key": "blood-serum",
+            "name": "Serum",
+            "description": "Serum"
+          },
+          {
+            "key": "blood-plasma",
+            "name": "Plasma",
+            "description": "Plasma"
+          },
+          {
+            "key": "urine",
+            "name": "Urine",
+            "description": "Urine"
+          },
+          {
+            "key": "csf-liquor",
+            "name": "Liquor/CSF",
+            "description": "Liquor/CSF"
+          },
+          {
+            "key": "stool-faeces",
+            "name": "Stool/Faeces",
+            "description": "Stool/Faeces"
+          },
+          {
+            "key": "bone-marrow",
+            "name": "Bone Marrow",
+            "description": "Bone Marrow"
+          },
+          {
             "key": "dna",
-            "name": "Dna",
+            "name": "DNA",
             "description": "DNA"
           },
           {
             "key": "rna",
-            "name": "Rna",
+            "name": "RNA",
             "description": "RNA"
           }
         ]
