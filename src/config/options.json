@@ -1,7 +1,16 @@
 {
   "spotUrl": "http://localhost:8055",
   "language": "en",
-  "siteMappings": {},
+  "sitesToQuery": [
+    "cce-dkfz"
+  ],
+  "siteMappings": {
+    "dkfz": "cce-dkfz",
+    "gr": "cce-gr",
+    "ki": "cce-ki",
+    "nki": "cce-nki",
+    "vhio": "cce-vhio"
+  },
   "chartOptions": {
     "gender": {
       "legendMapping": {
