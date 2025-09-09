@@ -40,6 +40,6 @@ services:
 
 secrets:
   proxy.pem:
-    file: /home/manoj/src-code/local-dev-env/${LOCAL_BEAM_ID}.priv.pem
+    file: /certs/${LOCAL_BEAM_ID}.priv.pem
   root.crt.pem:
-    file: /home/manoj/src-code/local-dev-env/root.crt.pem
+    file: /certs/root.crt.pem

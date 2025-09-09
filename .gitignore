@@ -1,4 +1,5 @@
-node_modules
+certs/
+node_modules/
 
 # Output
 .output
