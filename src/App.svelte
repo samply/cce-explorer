@@ -9,16 +9,12 @@
     setSiteResult,
     querySpot,
     getAst,
-    buildLibrary,
-    buildMeasure,
   } from "@samply/lens";
   import {
     VITAL_STATUS_LOINC_CODE,
     getGenderCriteria,
     getVitalStatusCriteria,
   } from "$lib/catalogService";
-  import { translateAstToCql } from "./lib/ast-to-cql-translator";
-  import { measures } from "./lib/measures";
   import { negotiate } from "./lib/project-manager";
   import { options } from "./lib/env-options";
   import { onMount } from "svelte";
@@ -26,30 +22,18 @@
   import catalogueProd from "./config/catalogue.json";
 
   let abortController = new AbortController();
-  
+
   window.addEventListener("lens-search-triggered", () => {
     abortController.abort();
     abortController = new AbortController();
-
-    // AST to CQL translation
-    const cql = translateAstToCql(
-      getAst(),
-      false,
-      "DKTK_STRAT_DEF_IN_INITIAL_POPULATION",
-      measures,
-    );
-    const lib = buildLibrary(cql);
-    const measure = buildMeasure(
-      lib.url,
-      measures.map((m) => m.measure),
-    );
-
     clearSiteResults();
+
     const query = btoa(
       JSON.stringify({
-        lang: "cql",
-        lib,
-        measure,
+        lang: "ast",
+        payload: btoa(
+          JSON.stringify({ ast: getAst(), id: crypto.randomUUID() }),
+        ),
       }),
     );
     querySpot(query, abortController.signal, (result: SpotResult) => {
@@ -112,6 +96,13 @@
   const genderHeaders: SvelteMap<string, string> = getGenderCriteria();
   const vitalStatusHeaders: SvelteMap<string, string> =
     getVitalStatusCriteria();
+
+  const barChartBackgroundColors: string[] = ["#4dc9f6", "#3da4c7"];
+
+  const therapyHeaders: Map<string, string> = new SvelteMap<
+    string,
+    string
+  >().set("medicationStatements", "Sys. T");
 </script>
 
 <header class="header">
@@ -185,22 +176,139 @@
     <div class="charts">
       <div class="chart-wrapper">
         <lens-chart
-          title="Gender"
+          title="Patients per site"
+          dataKey="patients"
+          chartType="pie"
+          perSite={true}
+          displayLegends={true}
+        ></lens-chart>
+      </div>
+      <div class="chart-wrapper result-table">
+        <lens-result-table pageSize={10}>
+          <div
+            slot="lens-result-above-pagination"
+            class="result-table-hint-text"
+          ></div>
+        </lens-result-table>
+      </div>
+      <div class="chart-wrapper">
+        <lens-chart
+          title="Sex"
           dataKey="gender"
           chartType="pie"
           displayLegends={true}
           headers={genderHeaders}
         ></lens-chart>
       </div>
+      <div class="chart-wrapper chart-diagnosis">
+        <lens-chart
+          title="Diagnoses"
+          dataKey="diagnosis"
+          chartType="bar"
+          indexAxis="y"
+          groupingDivider="."
+          groupingLabel=".%"
+          filterRegex={"^(C.{2,6}|D[0-4][0-9].{0,4})"}
+          xAxisTitle="Number of Diagnoses"
+          yAxisTitle="ICD-10-Codes"
+          backgroundColor={barChartBackgroundColors}
+        ></lens-chart>
+      </div>
+      <div class="chart-wrapper chart-age-distribution">
+        <lens-chart
+          title="Age at first diagnosis"
+          dataKey="Age"
+          chartType="bar"
+          groupRange={10}
+          filterRegex="^(([0-9]?[0-9]$)|(1[0-2]0))"
+          xAxisTitle="Age"
+          yAxisTitle="Primary diagnoses count"
+          backgroundColor={barChartBackgroundColors}
+        ></lens-chart>
+      </div>
       <div class="chart-wrapper">
         <lens-chart
-          title="Vital Status"
-          dataKey=VITAL_STATUS_LOINC_CODE
+          title="Vital Status*"
+          dataKey="VITAL_STATUS_LOINC_CODE"
           chartType="pie"
           displayLegends={true}
           headers={vitalStatusHeaders}
+        >
+          <div>
+            "Deceased" indicates that a date of death has been recorded. The
+            other values in this overview have not been harmonized yet.
+          </div>
+        </lens-chart>
+      </div>
+      <div class="chart-wrapper">
+        <lens-chart
+          title="Therapy Type"
+          dataKey="therapy_of_tumor"
+          chartType="bar"
+          headers={therapyHeaders}
+          xAxisTitle="Type of Therapy"
+          yAxisTitle="Number of Therapy entries"
+          backgroundColor={barChartBackgroundColors}
         ></lens-chart>
+        <div class="chart-wrapper">
+          <lens-chart
+            title="Systemic Therapies"
+            dataKey="medicationStatements"
+            chartType="bar"
+            xAxisTitle="Type of Therapy"
+            yAxisTitle="Number of Therapy entries"
+            backgroundColor={barChartBackgroundColors}
+          ></lens-chart>
+        </div>
+        <div class="chart-wrapper">
+          <lens-chart
+            title="Samples"
+            dataKey="sample_kind"
+            chartType="bar"
+            xAxisTitle="Sample types"
+            yAxisTitle="Number of Samples"
+            filterRegex="^(?!(tissue-other|buffy-coat|peripheral-blood-cells|dried-whole-blood|swab|ascites|stool-faeces|saliva|liquid-other|derivative-other))"
+            backgroundColor={barChartBackgroundColors}
+          >
+          </lens-chart>
+        </div>
+        <div class="chart-wrapper chart-wrapper-mol">
+          <lens-chart
+            title="Molecular Markers"
+            dataKey="MolecularMarkers"
+            chartType="bar"
+            xAxisTitle="Marker"
+            backgroundColor={barChartBackgroundColors}
+          >
+          </lens-chart>
+        </div>
       </div>
     </div>
   </div>
 </main>
+
+<footer>
+  <div>
+    Made with ♥ and <a href="https://github.com/samply/lens/">samply/lens</a>
+  </div>
+  <div>
+    More information in <a
+      href="https://wiki.verbis.dkfz.de/display/CCE/Cancer+Core+Europe+Home"
+      >Confluence</a
+    >
+  </div>
+</footer>
+
+<error-toasts></error-toasts>
+
+<style>
+  .catalogue-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--gap-s);
+  }
+  .catalogue-header h2 {
+    margin: 0;
+  }
+</style>

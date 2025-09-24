@@ -22,13 +22,18 @@ export const translateAstToCql = (
   backendMeasures: string,
   measures: FhirMeasureItem[],
 ): string => {
-  const localMeasures: { key: string; cql: string }[] = [];
-  measures.forEach((x) => {
-    localMeasures.push({
-      key: x.key,
-      cql: x.cql,
-    });
-  });
+  // const localMeasures: { key: string; cql: string }[] = [];
+  // measures.forEach((x) => {
+  //   localMeasures.push({
+  //     key: x.key,
+  //     cql: x.cql,
+  //   });
+  // });
+
+  const localMeasures = measures.map((measure) => ({
+    key: measure.key,
+    cql: measure.cql
+  }));
 
   const cqlHeader =
     "library Retrieve\n" +

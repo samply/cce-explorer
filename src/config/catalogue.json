@@ -7,7 +7,7 @@
       {
         "fieldType": "single-select",
         "key": "gender",
-        "name": "Gender",
+        "name": "Sex",
         "system": "",
         "type": "EQUALS",
         "criteria": [
