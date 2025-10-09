@@ -1,15 +1,13 @@
 {
   "spotUrl": "http://localhost:8055",
   "language": "en",
-  "sitesToQuery": [
-    "cce-dkfz"
-  ],
   "siteMappings": {
     "dkfz": "cce-dkfz",
     "gr": "cce-gr",
     "ki": "cce-ki",
     "nki": "cce-nki",
-    "vhio": "cce-vhio"
+    "vhio": "cce-vhio",
+    "proxy2": "proxy2"
   },
   "chartOptions": {
     "gender": {
@@ -25,5 +23,39 @@
         "\"unknown\": No date of birth or death known."
       ]
     }
+  },
+  "tableOptions": {
+    "headerData": [
+      {
+        "title": "Sites",
+        "dataKey": "site"
+      },
+      {
+        "title": "Patients",
+        "dataKey": "patients"
+      },
+      {
+        "title": "Specimen",
+        "dataKey": "specimen"
+      }
+    ]
+  },
+  "resultSummaryOptions": {
+    "title": "Results",
+    "infoButtonText": "Results",
+    "dataTypes": [
+      {
+        "title": "Sites",
+        "dataKey": "collections"
+      },
+      {
+        "title": "Patients",
+        "dataKey": "patients"
+      },
+      {
+        "title": "Diagnosis",
+        "dataKey": "diagnosis"
+      }
+    ]
   }
 }

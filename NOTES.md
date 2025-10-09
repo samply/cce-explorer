@@ -15,6 +15,10 @@ The `catalogue.json` file expected by any project-specific explorer (i.e. this *
 
 The various `.ts` files from `lens-cce/src/assets` were copied to the `lens-catalogue-transformer/src/inputs/cce` dir and the command `npm run local transform cce` was run to get the current version of the catalogue in `catalogue.json`.
 
+#### Changes
+
+- for VitalStatus, the key was changed from `75186-7` to `VitalStatus` in `catalogue.json` (on 30-Sep-2025)
+
 ## To run
 
 ```sh
@@ -94,6 +98,15 @@ There are **3 representations** (or formats) of a query -
 - Library should contain stratifier code (e.g. fn name DiseaseExtentCode)
 - Post Measure contains measures which use fn names defined in library (DiseaseExtentCode)
 - Evaluate Measure is common for all
+
+#### FHIR
+
+- stratifier - breakdown of fhir resource based on some param - e.g. gender, sample types (1 chart)
+- strata is one bar in a graph (1 bar in the chart is a stratum)
+- measure - the response sent by fhir, 
+- the response is called measure report (group patients by stratifier, then stratum)
+- a measure is something which defines how you get the response of the function evaluate measure
+- defines structure of a report
 
 ### Empty search
 

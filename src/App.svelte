@@ -91,7 +91,7 @@
     document.body.removeChild(a);
   };
 
-  let catalogueopen: boolean = false;
+  let catalogueOpen: boolean = false;
 
   const genderHeaders: SvelteMap<string, string> = getGenderCriteria();
   const vitalStatusHeaders: SvelteMap<string, string> =
@@ -154,6 +154,7 @@
       <lens-search-button title="Search"></lens-search-button>
     </div>
   </div>
+
   <div class="grid">
     <div class="catalogue-wrapper">
       <div class="catalogue">
@@ -169,11 +170,22 @@
             alignDialogue="left"
           ></lens-info-button>
         </div>
-        <lens-catalogue toggle={{ collapsable: false, open: catalogueopen }}
+        <lens-catalogue toggle={{ collapsable: false, open: catalogueOpen }}
         ></lens-catalogue>
       </div>
     </div>
+
     <div class="charts">
+      <div class="chart-wrapper result-summary">
+        <lens-result-summary></lens-result-summary>
+        {#if options.projectManagerOptions}
+          <lens-negotiate-button
+            type="ProjectManager"
+            title="Data and sample requests"
+          ></lens-negotiate-button>
+        {/if}
+        <lens-search-modified-display>Charts no longer represent the current search!</lens-search-modified-display>
+      </div>
       <div class="chart-wrapper">
         <lens-chart
           title="Patients per site"
@@ -217,7 +229,7 @@
       <div class="chart-wrapper chart-age-distribution">
         <lens-chart
           title="Age at first diagnosis"
-          dataKey="Age"
+          dataKey="age_at_diagnosis"
           chartType="bar"
           groupRange={10}
           filterRegex="^(([0-9]?[0-9]$)|(1[0-2]0))"
@@ -229,7 +241,7 @@
       <div class="chart-wrapper">
         <lens-chart
           title="Vital Status*"
-          dataKey="VITAL_STATUS_LOINC_CODE"
+          dataKey="{VITAL_STATUS_LOINC_CODE}"
           chartType="pie"
           displayLegends={true}
           headers={vitalStatusHeaders}

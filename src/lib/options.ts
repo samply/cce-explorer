@@ -5,7 +5,7 @@
 import { type LensOptions } from "@samply/lens";
 
 export type Options = LensOptions & {
-  projectmanagerOptions?: ProjectManagerOptions;
+  projectManagerOptions?: ProjectManagerOptions;
 };
 
 export type ProjectManagerOptionsSiteMapping = {
