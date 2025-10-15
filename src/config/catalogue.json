@@ -7,7 +7,7 @@
       {
         "fieldType": "single-select",
         "key": "gender",
-        "name": "Sex",
+        "name": "Gender",
         "system": "",
         "type": "EQUALS",
         "criteria": [
@@ -23,7 +23,7 @@
       },
       {
         "fieldType": "single-select",
-        "key": "vitalStatusCS",
+        "key": "75186-7",
         "name": "Vital Status",
         "system": "https://www.cancercoreeurope.eu/fhir/core/CodeSystem/VitalStatusCS",
         "type": "EQUALS",
@@ -35,6 +35,526 @@
           {
             "key": "deceased",
             "name": "Deceased"
+          },
+          {
+            "key": "unknown",
+            "name": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "fieldType": "group",
+    "key": "tumor_classification",
+    "name": "Tumor classification",
+    "childCategories": [
+      {
+        "fieldType": "single-select",
+        "key": "bodySite",
+        "name": "Side Location",
+        "system": "",
+        "type": "EQUALS",
+        "criteria": [
+          {
+            "key": "L",
+            "name": "Left"
+          },
+          {
+            "key": "R",
+            "name": "Right"
+          },
+          {
+            "key": "B",
+            "name": "Bilateral"
+          },
+          {
+            "key": "C",
+            "name": "Centered"
+          },
+          {
+            "key": "U",
+            "name": "Unknown"
+          },
+          {
+            "key": "N",
+            "name": "Not applicable"
+          }
+        ]
+      },
+      {
+        "fieldType": "single-select",
+        "key": "21908-9",
+        "name": "UICC Stage",
+        "system": "https://www.cancercoreeurope.eu/fhir/core/CodeSystem/UICCStageCS",
+        "type": "EQUALS",
+        "criteria": [
+          {
+            "key": "0is",
+            "name": "0is"
+          },
+          {
+            "key": "0a",
+            "name": "0a"
+          },
+          {
+            "key": "0",
+            "name": "0"
+          },
+          {
+            "key": "IA2",
+            "name": "IA2"
+          },
+          {
+            "key": "IA1",
+            "name": "IA1"
+          },
+          {
+            "key": "IA",
+            "name": "IA"
+          },
+          {
+            "key": "IB2",
+            "name": "IB2"
+          },
+          {
+            "key": "IB1",
+            "name": "IB1"
+          },
+          {
+            "key": "IB",
+            "name": "IB"
+          },
+          {
+            "key": "IIC",
+            "name": "IIC"
+          },
+          {
+            "key": "IIB",
+            "name": "IIB"
+          },
+          {
+            "key": "IIA2",
+            "name": "IIA2"
+          },
+          {
+            "key": "IIA1",
+            "name": "IIA1"
+          },
+          {
+            "key": "IIA",
+            "name": "IIA"
+          },
+          {
+            "key": "II",
+            "name": "II"
+          },
+          {
+            "key": "IIIC2",
+            "name": "IIIC2"
+          },
+          {
+            "key": "IIIC1",
+            "name": "IIIC1"
+          },
+          {
+            "key": "IIIC",
+            "name": "IIIC"
+          },
+          {
+            "key": "IIIB",
+            "name": "IIIB"
+          },
+          {
+            "key": "IIIA",
+            "name": "IIIA"
+          },
+          {
+            "key": "III",
+            "name": "III"
+          },
+          {
+            "key": "IVC",
+            "name": "IVC"
+          },
+          {
+            "key": "IVB",
+            "name": "IVB"
+          },
+          {
+            "key": "IVA",
+            "name": "IVA"
+          },
+          {
+            "key": "IV",
+            "name": "IV"
+          },
+          {
+            "key": "IS",
+            "name": "IS"
+          }
+        ]
+      },
+      {
+        "fieldType": "group",
+        "key": "tnm",
+        "name": "TNM(c)",
+        "childCategories": [
+          {
+            "fieldType": "single-select",
+            "key": "21905-5",
+            "name": "TNM-T",
+            "system": "",
+            "type": "EQUALS",
+            "criteria": [
+              {
+                "key": "0",
+                "name": "0"
+              },
+              {
+                "key": "1",
+                "name": "1"
+              },
+              {
+                "key": "1a",
+                "name": "1a"
+              },
+              {
+                "key": "1a1",
+                "name": "1a1"
+              },
+              {
+                "key": "1a2",
+                "name": "1a2"
+              },
+              {
+                "key": "1b",
+                "name": "1b"
+              },
+              {
+                "key": "1b1",
+                "name": "1b1"
+              },
+              {
+                "key": "1b2",
+                "name": "1b2"
+              },
+              {
+                "key": "1c",
+                "name": "1c"
+              },
+              {
+                "key": "1c1",
+                "name": "1c1"
+              },
+              {
+                "key": "1c2",
+                "name": "1c2"
+              },
+              {
+                "key": "1c3",
+                "name": "1c3"
+              },
+              {
+                "key": "1d",
+                "name": "1d"
+              },
+              {
+                "key": "1mi",
+                "name": "1mi"
+              },
+              {
+                "key": "2",
+                "name": "2"
+              },
+              {
+                "key": "2a",
+                "name": "2a"
+              },
+              {
+                "key": "2a1",
+                "name": "2a1"
+              },
+              {
+                "key": "2a2",
+                "name": "2a2"
+              },
+              {
+                "key": "2b",
+                "name": "2b"
+              },
+              {
+                "key": "2c",
+                "name": "2c"
+              },
+              {
+                "key": "2d",
+                "name": "2d"
+              },
+              {
+                "key": "3",
+                "name": "3"
+              },
+              {
+                "key": "3a",
+                "name": "3a"
+              },
+              {
+                "key": "3b",
+                "name": "3b"
+              },
+              {
+                "key": "3c",
+                "name": "3c"
+              },
+              {
+                "key": "3d",
+                "name": "3d"
+              },
+              {
+                "key": "4",
+                "name": "4"
+              },
+              {
+                "key": "4a",
+                "name": "4a"
+              },
+              {
+                "key": "4b",
+                "name": "4b"
+              },
+              {
+                "key": "4c",
+                "name": "4c"
+              },
+              {
+                "key": "4d",
+                "name": "4d"
+              },
+              {
+                "key": "4e",
+                "name": "4e"
+              },
+              {
+                "key": "a",
+                "name": "a"
+              },
+              {
+                "key": "is",
+                "name": "is"
+              },
+              {
+                "key": "is(DCIS)",
+                "name": "is(DCIS)"
+              },
+              {
+                "key": "is(LCIS)",
+                "name": "is(LCIS)"
+              },
+              {
+                "key": "is(Paget)",
+                "name": "is(Paget)"
+              },
+              {
+                "key": "is(pd)",
+                "name": "is(pd)"
+              },
+              {
+                "key": "is(pu)",
+                "name": "is(pu)"
+              },
+              {
+                "key": "X",
+                "name": "X"
+              }
+            ]
+          },
+          {
+            "fieldType": "single-select",
+            "key": "21906-3",
+            "name": "TNM-N",
+            "system": "",
+            "type": "EQUALS",
+            "criteria": [
+              {
+                "key": "0",
+                "name": "0"
+              },
+              {
+                "key": "0(i-)",
+                "name": "0(i-)"
+              },
+              {
+                "key": "0(i+)",
+                "name": "0(i+)"
+              },
+              {
+                "key": "0(mol-)",
+                "name": "0(mol-)"
+              },
+              {
+                "key": "0(mol+)",
+                "name": "0(mol+)"
+              },
+              {
+                "key": "1",
+                "name": "1"
+              },
+              {
+                "key": "1a",
+                "name": "1a"
+              },
+              {
+                "key": "1b",
+                "name": "1b"
+              },
+              {
+                "key": "1c",
+                "name": "1c"
+              },
+              {
+                "key": "1mi",
+                "name": "1mi"
+              },
+              {
+                "key": "2",
+                "name": "2"
+              },
+              {
+                "key": "2a",
+                "name": "2a"
+              },
+              {
+                "key": "2b",
+                "name": "2b"
+              },
+              {
+                "key": "2c",
+                "name": "2c"
+              },
+              {
+                "key": "3",
+                "name": "3"
+              },
+              {
+                "key": "3a",
+                "name": "3a"
+              },
+              {
+                "key": "3b",
+                "name": "3b"
+              },
+              {
+                "key": "3c",
+                "name": "3c"
+              },
+              {
+                "key": "X",
+                "name": "X"
+              }
+            ]
+          },
+          {
+            "fieldType": "single-select",
+            "key": "21907-1",
+            "name": "TNM-M",
+            "system": "",
+            "type": "EQUALS",
+            "criteria": [
+              {
+                "key": "0",
+                "name": "0"
+              },
+              {
+                "key": "1",
+                "name": "1"
+              },
+              {
+                "key": "1a",
+                "name": "1a"
+              },
+              {
+                "key": "1b",
+                "name": "1b"
+              },
+              {
+                "key": "1c",
+                "name": "1c"
+              },
+              {
+                "key": "1d",
+                "name": "1d"
+              },
+              {
+                "key": "1e",
+                "name": "1e"
+              },
+              {
+                "key": "0(i-)",
+                "name": "0(i-)"
+              },
+              {
+                "key": "0(i+)",
+                "name": "0(i+)"
+              },
+              {
+                "key": "0(mol-)",
+                "name": "0(mol-)"
+              },
+              {
+                "key": "0(mol+)",
+                "name": "0(mol+)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "fieldType": "group",
+    "key": "therapy_of_tumor",
+    "name": "Therapy of tumor",
+    "childCategories": [
+      {
+        "fieldType": "single-select",
+        "key": "procedure",
+        "name": "Operation / Radiotherapy",
+        "system": "",
+        "type": "EQUALS",
+        "criteria": [
+          {
+            "key": "OP",
+            "name": "Operation"
+          },
+          {
+            "key": "RT",
+            "name": "Radiotherapy"
+          }
+        ]
+      },
+      {
+        "fieldType": "single-select",
+        "key": "medicationStatement",
+        "name": "Other Therapies",
+        "system": "",
+        "type": "EQUALS",
+        "criteria": [
+          {
+            "key": "CH",
+            "name": "Chemotherapy"
+          },
+          {
+            "key": "HO",
+            "name": "Hormone therapy"
+          },
+          {
+            "key": "IM",
+            "name": "Immunotherapy"
+          },
+          {
+            "key": "SC",
+            "name": "Stem cell therapy"
           }
         ]
       }
