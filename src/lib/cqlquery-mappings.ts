@@ -13,7 +13,10 @@ export const alias = new Map<string, string>([
   //   "Therapieart",
   //   "http://dktk.dkfz.de/fhir/onco/core/CodeSystem/SYSTTherapieartCS",
   // ],
-  ["specimentype", "https://www.cancercoreeurope.eu/fhir/core/CodeSystem/SampleMaterialType"],
+  [
+    "specimentype",
+    "https://www.cancercoreeurope.eu/fhir/core/CodeSystem/SampleMaterialType",
+  ],
   // [
   //   "uiccstadiumcs",
   //   "http://dktk.dkfz.de/fhir/onco/core/CodeSystem/UiccstadiumCS",

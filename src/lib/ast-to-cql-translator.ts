@@ -32,7 +32,7 @@ export const translateAstToCql = (
 
   const localMeasures = measures.map((measure) => ({
     key: measure.key,
-    cql: measure.cql
+    cql: measure.cql,
   }));
 
   const cqlHeader =

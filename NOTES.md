@@ -9,7 +9,7 @@ The `docker-compose.yml` file uses:
 
 ### Catalogue
 
-The `catalogue.json` file expected by any project-specific explorer (i.e. this **new** Lens) is obtained from the *catalogue* definitions from the **old** project-specific explorer (i.e. the old Lens). For this purpose, a [lens-catalogue-transformer](https://git.verbis.dkfz.de/lens/lens-catalogue-transformer.git) tool is written. Please check the `README.md` file of the above tool to transform your old catalogues to a new format.
+The `catalogue.json` file expected by any project-specific explorer (i.e. this **new** Lens) is obtained from the _catalogue_ definitions from the **old** project-specific explorer (i.e. the old Lens). For this purpose, a [lens-catalogue-transformer](https://git.verbis.dkfz.de/lens/lens-catalogue-transformer.git) tool is written. Please check the `README.md` file of the above tool to transform your old catalogues to a new format.
 
 #### For CCE
 
@@ -37,13 +37,13 @@ npm run dev
 - A. It is a map of `keys` to `CodeSystem URLs`
 
 - Q. what is cqltemplate for?
-- A. 
+- A.
 
 - Q. why doesn't cqltemplate have anything for vitalstatus?
-- A. 
+- A.
 
 - Q. what is criterionMap for?
-- A. 
+- A.
 
 ### ast-to-cql-translator
 
@@ -52,9 +52,8 @@ npm run dev
 this file should work as it is
 **copy measures from Lens1**
 
-
 - Q. what is a measure?
-- A. 
+- A.
 
 - Q. what is a stratifier?
 - A. gender, stratum is male/female
@@ -67,7 +66,8 @@ this file should work as it is
 - negotiate button is used by project-manager
 - request data - data science orchestrator, bbmri negotiator or
 
-----
+---
+
 base64 thing is the query
 
 ## Analysis
@@ -87,9 +87,9 @@ There are **3 representations** (or formats) of a query -
 #### Focus
 
 - Stratifier is defined in focus (e.g. name ABC)
-- It's used in measures.ts 
-	  ([stratifier:criteria:expression "ABC"])
-	  stratifier:code:text "abc"
+- It's used in measures.ts
+  ([stratifier:criteria:expression "ABC"])
+  stratifier:code:text "abc"
 - stratifier:code:text is used in any control's `dataKey` property
 - Library should contain one or more stratifiers
 
@@ -103,7 +103,7 @@ There are **3 representations** (or formats) of a query -
 
 - stratifier - breakdown of fhir resource based on some param - e.g. gender, sample types (1 chart)
 - strata is one bar in a graph (1 bar in the chart is a stratum)
-- measure - the response sent by fhir, 
+- measure - the response sent by fhir,
 - the response is called measure report (group patients by stratifier, then stratum)
 - a measure is something which defines how you get the response of the function evaluate measure
 - defines structure of a report
