@@ -184,7 +184,9 @@
             title="Data and sample requests"
           ></lens-negotiate-button>
         {/if}
-        <lens-search-modified-display>Charts no longer represent the current search!</lens-search-modified-display>
+        <lens-search-modified-display>
+          Charts no longer represent the current search!
+        </lens-search-modified-display>
       </div>
       <div class="chart-wrapper">
         <lens-chart
@@ -221,7 +223,7 @@
           groupingDivider="."
           groupingLabel=".%"
           filterRegex={"^(C.{2,6}|D[0-4][0-9].{0,4})"}
-          xAxisTitle="Number of Diagnoses"
+          xAxisTitle="Diagnoses count"
           yAxisTitle="ICD-10-Codes"
           backgroundColor={barChartBackgroundColors}
         ></lens-chart>
@@ -241,7 +243,7 @@
       <div class="chart-wrapper">
         <lens-chart
           title="Vital Status*"
-          dataKey="{VITAL_STATUS_LOINC_CODE}"
+          dataKey={VITAL_STATUS_LOINC_CODE}
           chartType="pie"
           displayLegends={true}
           headers={vitalStatusHeaders}
@@ -252,44 +254,36 @@
           </div>
         </lens-chart>
       </div>
-      <div class="chart-wrapper">
-        <lens-chart
-          title="Therapy Type"
-          dataKey="therapy_of_tumor"
-          chartType="bar"
-          headers={therapyHeaders}
-          xAxisTitle="Type of Therapy"
-          yAxisTitle="Number of Therapy entries"
-          backgroundColor={barChartBackgroundColors}
-        ></lens-chart>
+      <div class="chart-wrapper-mol">
         <div class="chart-wrapper">
           <lens-chart
-            title="Systemic Therapies"
-            dataKey="medicationStatements"
+            title="Type of Therapy"
+            dataKey="ProcedureType"
             chartType="bar"
+            headers={therapyHeaders}
             xAxisTitle="Type of Therapy"
-            yAxisTitle="Number of Therapy entries"
+            yAxisTitle="Therapy count"
             backgroundColor={barChartBackgroundColors}
           ></lens-chart>
         </div>
         <div class="chart-wrapper">
           <lens-chart
-            title="Samples"
+            title="Systemic Therapies"
+            dataKey="MedicationType"
+            chartType="bar"
+            xAxisTitle="Type of Therapy"
+            yAxisTitle="Therapy count"
+            backgroundColor={barChartBackgroundColors}
+          ></lens-chart>
+        </div>
+        <div class="chart-wrapper">
+          <lens-chart
+            title="Specimen"
             dataKey="sample_kind"
             chartType="bar"
-            xAxisTitle="Sample types"
-            yAxisTitle="Number of Samples"
+            xAxisTitle="Types of Specimen"
+            yAxisTitle="Specimen count"
             filterRegex="^(?!(tissue-other|buffy-coat|peripheral-blood-cells|dried-whole-blood|swab|ascites|stool-faeces|saliva|liquid-other|derivative-other))"
-            backgroundColor={barChartBackgroundColors}
-          >
-          </lens-chart>
-        </div>
-        <div class="chart-wrapper chart-wrapper-mol">
-          <lens-chart
-            title="Molecular Markers"
-            dataKey="MolecularMarkers"
-            chartType="bar"
-            xAxisTitle="Marker"
             backgroundColor={barChartBackgroundColors}
           >
           </lens-chart>
@@ -301,13 +295,18 @@
 
 <footer>
   <div>
-    Made with ♥ and <a href="https://github.com/samply/lens/">samply/lens</a>
+    Made with ♥ and
+    <a href="https://github.com/samply/lens/" target="_blank">samply/lens </a>
   </div>
+  &nbsp;
   <div>
-    More information in <a
+    More information in
+    <a
       href="https://wiki.verbis.dkfz.de/display/CCE/Cancer+Core+Europe+Home"
-      >Confluence</a
+      target="_blank"
     >
+      Confluence
+    </a>
   </div>
 </footer>
 

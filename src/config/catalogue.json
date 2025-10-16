@@ -567,7 +567,7 @@
     "childCategories": [
       {
         "fieldType": "single-select",
-        "key": "sample-type",
+        "key": "sample_kind",
         "name": "Sample Type",
         "system": "",
         "type": "EQUALS",
