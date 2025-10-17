@@ -254,40 +254,38 @@
           </div>
         </lens-chart>
       </div>
-      <div class="chart-wrapper-mol">
-        <div class="chart-wrapper">
-          <lens-chart
-            title="Type of Therapy"
-            dataKey="ProcedureType"
-            chartType="bar"
-            headers={therapyHeaders}
-            xAxisTitle="Type of Therapy"
-            yAxisTitle="Therapy count"
-            backgroundColor={barChartBackgroundColors}
-          ></lens-chart>
-        </div>
-        <div class="chart-wrapper">
-          <lens-chart
-            title="Systemic Therapies"
-            dataKey="MedicationType"
-            chartType="bar"
-            xAxisTitle="Type of Therapy"
-            yAxisTitle="Therapy count"
-            backgroundColor={barChartBackgroundColors}
-          ></lens-chart>
-        </div>
-        <div class="chart-wrapper">
-          <lens-chart
-            title="Specimen"
-            dataKey="sample_kind"
-            chartType="bar"
-            xAxisTitle="Types of Specimen"
-            yAxisTitle="Specimen count"
-            filterRegex="^(?!(tissue-other|buffy-coat|peripheral-blood-cells|dried-whole-blood|swab|ascites|stool-faeces|saliva|liquid-other|derivative-other))"
-            backgroundColor={barChartBackgroundColors}
-          >
-          </lens-chart>
-        </div>
+      <div class="chart-wrapper">
+        <lens-chart
+          title="Type of Therapy"
+          dataKey="ProcedureType"
+          chartType="bar"
+          headers={therapyHeaders}
+          xAxisTitle="Type of Therapy"
+          yAxisTitle="Therapy count"
+          backgroundColor={barChartBackgroundColors}
+        ></lens-chart>
+      </div>
+      <div class="chart-wrapper">
+        <lens-chart
+          title="Systemic Therapies"
+          dataKey="MedicationType"
+          chartType="bar"
+          xAxisTitle="Type of Therapy"
+          yAxisTitle="Therapy count"
+          backgroundColor={barChartBackgroundColors}
+        ></lens-chart>
+      </div>
+      <div class="chart-wrapper">
+        <lens-chart
+          title="Specimen"
+          dataKey="sample_kind"
+          chartType="bar"
+          xAxisTitle="Types of Specimen"
+          yAxisTitle="Specimen count"
+          filterRegex="^(?!(tissue-other|buffy-coat|peripheral-blood-cells|dried-whole-blood|swab|ascites|stool-faeces|saliva|liquid-other|derivative-other))"
+          backgroundColor={barChartBackgroundColors}
+        >
+        </lens-chart>
       </div>
     </div>
   </div>
@@ -295,8 +293,9 @@
 
 <footer>
   <div>
-    Made with ♥ and
-    <a href="https://github.com/samply/lens/" target="_blank">samply/lens </a>
+    Made with ♥ and<a href="https://github.com/samply/lens/" target="_blank"
+      >samply/lens</a
+    >
   </div>
   &nbsp;
   <div>
