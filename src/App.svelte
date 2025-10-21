@@ -42,6 +42,18 @@
         markSiteClaimed(site);
       } else if (result.status === "succeeded") {
         const siteResult = JSON.parse(atob(result.body));
+        // siteResult.stratifiers.age_at_diagnosis = {
+        //   "0": 257,
+        //   "10": 129,
+        //   "20": 111,
+        //   "30": 136,
+        //   "40": 141,
+        //   "50": 111,
+        //   "60": 51,
+        //   "70": 2,
+        //   "-10": 62,
+        // };
+        // console.log("siteResult ", siteResult);
         setSiteResult(site, siteResult);
       } else {
         console.error(
