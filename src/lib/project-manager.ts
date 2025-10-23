@@ -28,24 +28,24 @@ type ProjectManagerResponse = Response & {
 };
 
 export const negotiate = async (): Promise<void> => {
-  if (options.projectmanagerOptions === undefined) {
-    console.error('"projectmanagerOptions" is missing from the options');
+  if (options.projectManagerOptions === undefined) {
+    console.error('"projectManagerOptions" is missing from the options');
     return;
   }
 
   const humanReadable: string = getHumanReadableQuery();
-  const collections = options.projectmanagerOptions.siteMappings.filter(
+  const collections = options.projectManagerOptions.siteMappings.filter(
     (mapping) => getSelectedSites().includes(mapping.site),
   );
 
   const response: ProjectManagerResponse = await sendRequestToProjectManager(
-    options.projectmanagerOptions,
+    options.projectManagerOptions,
     humanReadable,
     collections,
   );
 
   if (!response.redirect_uri) {
-    console.error("Projectmanager response does not contain redirect uri");
+    console.error("ProjectManager response does not contain redirect uri");
     return;
   }
 
@@ -58,13 +58,13 @@ export const negotiate = async (): Promise<void> => {
 //     // project manager
 
 /**
- * @param currentProjectmanagerOptions the current project manager options
+ * @param currentProjectManagerOptions the current project manager options
  * @param humanReadable a human readable query string to view in the negotiator project
  * @param collections the collections to negotiate with
  * @returns a promise containing the response from the project manager. The response contains the redirect uri
  */
 async function sendRequestToProjectManager(
-  currentProjectmanagerOptions: ProjectManagerOptions,
+  currentProjectManagerOptions: ProjectManagerOptions,
   humanReadable: string,
   collections: ProjectManagerOptionsSiteMapping[],
 ): Promise<ProjectManagerResponse> {
@@ -101,8 +101,8 @@ async function sendRequestToProjectManager(
 
   const projectCode: string | null = urlParams.get("project-code");
   const negotiateUrl = projectCode
-    ? currentProjectmanagerOptions.editProjectUrl
-    : currentProjectmanagerOptions.newProjectUrl;
+    ? currentProjectManagerOptions.editProjectUrl
+    : currentProjectManagerOptions.newProjectUrl;
 
   let response!: ProjectManagerResponse;
 
