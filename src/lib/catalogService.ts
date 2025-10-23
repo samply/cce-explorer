@@ -21,9 +21,9 @@ export function getSingleSelectCategory(
   groupKey: string,
   categoryKey: string,
 ): SingleSelectCategory | undefined {
-  let categoryGroup = getCategoryGroup(groupKey);
+  const categoryGroup = getCategoryGroup(groupKey);
   if (categoryGroup) {
-    let category = categoryGroup.childCategories.find(
+    const category = categoryGroup.childCategories.find(
       (key) => key.key === categoryKey,
     );
     if (category) {
@@ -38,10 +38,10 @@ export function getSingleSelectCategory(
 /// Get the gender criteria from the catalogue. The same values are used for headers.
 /// </summary>
 export function getGenderCriteria(): SvelteMap<string, string> {
-  const catalogue = getCatalogue();
+  // const catalogue = getCatalogue();
   const genderCriteria = new SvelteMap<string, string>();
 
-  let genderCategory = getSingleSelectCategory("patient", "gender");
+  const genderCategory = getSingleSelectCategory("patient", "gender");
   if (genderCategory) {
     genderCategory.criteria.forEach((criterion) => {
       genderCriteria.set(criterion.key, criterion.name);
@@ -55,10 +55,10 @@ export function getGenderCriteria(): SvelteMap<string, string> {
 /// Get the vital status criteria from the catalogue. The same values are used for headers.
 /// </summary>
 export function getVitalStatusCriteria(): SvelteMap<string, string> {
-  const catalogue = getCatalogue();
+  // const catalogue = getCatalogue();
   const vitalStatusCriteria = new SvelteMap<string, string>();
 
-  let vitalStatusCategory = getSingleSelectCategory(
+  const vitalStatusCategory = getSingleSelectCategory(
     "patient",
     VITAL_STATUS_LOINC_CODE,
   );

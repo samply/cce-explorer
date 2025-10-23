@@ -1,0 +1,61 @@
+{
+  "spotUrl": "http://localhost:8055",
+  "language": "en",
+  "siteMappings": {
+    "dkfz": "cce-dkfz",
+    "gr": "cce-gr",
+    "ki": "cce-ki",
+    "nki": "cce-nki",
+    "vhio": "cce-vhio",
+    "cruk-cc": "cce-cruk-cc"
+  },
+  "chartOptions": {
+    "gender": {
+      "legendMapping": {
+        "male": "Male",
+        "female": "Female"
+      }
+    },
+    "75186-7": {
+      "hintText": [
+        "\"deceased\": a date of death is documented or the current age is greater than 123 years.",
+        "\"alive\": is assumed if no date of death is documented or the current age has not exceeded 123 years.",
+        "\"unknown\": No date of birth or death known."
+      ]
+    }
+  },
+  "tableOptions": {
+    "headerData": [
+      {
+        "title": "Sites",
+        "dataKey": "site"
+      },
+      {
+        "title": "Patients",
+        "dataKey": "patients"
+      },
+      {
+        "title": "Specimen",
+        "dataKey": "specimen"
+      }
+    ]
+  },
+  "resultSummaryOptions": {
+    "title": "Results",
+    "infoButtonText": "Results",
+    "dataTypes": [
+      {
+        "title": "Sites",
+        "dataKey": "collections"
+      },
+      {
+        "title": "Patients",
+        "dataKey": "patients"
+      },
+      {
+        "title": "Diagnosis",
+        "dataKey": "diagnosis"
+      }
+    ]
+  }
+}
