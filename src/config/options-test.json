@@ -2,12 +2,7 @@
   "spotUrl": "http://localhost:8055",
   "language": "en",
   "siteMappings": {
-    "dkfz": "cce-dkfz",
-    "gr": "cce-gr",
-    "ki": "cce-ki",
-    "nki": "cce-nki",
-    "vhio": "cce-vhio",
-    "cruk-cc": "cce-cruk-cc"
+    "proxy2": "proxy2"
   },
   "chartOptions": {
     "gender": {
