@@ -23,7 +23,7 @@
       },
       {
         "fieldType": "single-select",
-        "key": "75186-7",
+        "key": "vitalStatusCS",
         "name": "Vital Status",
         "system": "https://www.cancercoreeurope.eu/fhir/core/CodeSystem/VitalStatusCS",
         "type": "EQUALS",
@@ -35,10 +35,6 @@
           {
             "key": "deceased",
             "name": "Deceased"
-          },
-          {
-            "key": "unknown",
-            "name": "Unknown"
           }
         ]
       }
