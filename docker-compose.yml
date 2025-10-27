@@ -21,6 +21,7 @@ services:
       BIND_ADDR: 0.0.0.0:8055
       RUST_LOG: "info"
       LOG_FILE: /logs/requests.log
+      PROJECT: "cce"
     volumes:
       - ./logs:/logs
     depends_on:
@@ -40,6 +41,6 @@ services:
 
 secrets:
   proxy.pem:
-    file: /certs/${LOCAL_BEAM_ID}.priv.pem
+    file: /etc/bridgehead/pki/${LOCAL_BEAM_ID}.priv.pem
   root.crt.pem:
-    file: /certs/root.crt.pem
+    file: certs/root.crt.pem

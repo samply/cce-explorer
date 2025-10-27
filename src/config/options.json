@@ -1,5 +1,5 @@
 {
-  "spotUrl": "http://localhost:8055",
+  "spotUrl": "https://e260-serv-13/backend/",
   "language": "en",
   "siteMappings": {
     "dkfz": "cce-dkfz",
