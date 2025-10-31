@@ -2,21 +2,28 @@
   "spotUrl": "https://e260-serv-13/backend/",
   "language": "en",
   "siteMappings": {
-    "dkfz": "cce-dkfz",
-    "gr": "cce-gr",
-    "ki": "cce-ki",
-    "nki": "cce-nki",
-    "vhio": "cce-vhio",
-    "cruk-cc": "cce-cruk-cc"
+    "cce-dkfz": "German Cancer Research Center 🇩🇪",
+    "cce-gr": "Gustave Roussy 🇫🇷",
+    "cce-ki": "Karolinska Institutet 🇸🇪",
+    "cce-nki": "Netherlands Cancer Institute 🇳🇱",
+    "cce-vhio": "Vall d'Hebron Institute of Oncology 🇪🇸",
+    "cce-cruk-cc": "Cancer Research UK Cambridge Center 🇬🇧"
   },
   "chartOptions": {
     "gender": {
       "legendMapping": {
         "male": "Male",
-        "female": "Female"
+        "female": "Female",
+        "other": "Other",
+        "unknown": "Unknown"
       }
     },
     "75186-7": {
+      "legendMapping": {
+        "alive": "Alive",
+        "deceased": "Deceased",
+        "unknown": "Unknown"
+      },
       "hintText": [
         "\"deceased\": a date of death is documented or the current age is greater than 123 years.",
         "\"alive\": is assumed if no date of death is documented or the current age has not exceeded 123 years.",

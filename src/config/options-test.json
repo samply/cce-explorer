@@ -2,20 +2,33 @@
   "spotUrl": "http://localhost:8055",
   "language": "en",
   "siteMappings": {
-    "proxy2": "proxy2"
+    "proxy2": "proxy2",
+    "cce-dkfz": "German Cancer Research Center 🇩🇪",
+    "cce-gr": "Gustave Roussy 🇫🇷",
+    "cce-ki": "Karolinska Institutet 🇸🇪",
+    "cce-nki": "Netherlands Cancer Institute 🇳🇱",
+    "cce-vhio": "Vall d'Hebron Institute of Oncology 🇪🇸",
+    "cce-cruk-cc": "Cancer Research UK Cambridge Center 🇬🇧"
   },
   "chartOptions": {
     "gender": {
       "legendMapping": {
         "male": "Male",
-        "female": "Female"
+        "female": "Female",
+        "other": "Other",
+        "unknown": "Unknown"
       }
     },
     "75186-7": {
+      "legendMapping": {
+        "alive": "Alive",
+        "deceased": "Deceased",
+        "unknown": "Unknown"
+      },
       "hintText": [
-        "\"deceased\": a date of death is documented or the current age is greater than 123 years.",
-        "\"alive\": is assumed if no date of death is documented or the current age has not exceeded 123 years.",
-        "\"unknown\": No date of birth or death known."
+        "\"Deceased\": a date of death is documented or the current age is greater than 123 years.",
+        "\"Alive\": is assumed if no date of death is documented or the current age has not exceeded 123 years.",
+        "\"Unknown\": No date of birth or death known."
       ]
     }
   },

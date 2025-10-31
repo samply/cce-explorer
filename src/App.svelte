@@ -10,11 +10,7 @@
     querySpot,
     getAst,
   } from "@samply/lens";
-  import {
-    VITAL_STATUS_LOINC_CODE,
-    getGenderCriteria,
-    getVitalStatusCriteria,
-  } from "$lib/catalogService";
+  import { VITAL_STATUS_LOINC_CODE } from "$lib/constants";
   import { negotiate } from "./lib/project-manager";
   import { options } from "./lib/env-options";
   import { onMount } from "svelte";
@@ -104,11 +100,6 @@
   };
 
   let catalogueOpen: boolean = false;
-
-  const genderHeaders: SvelteMap<string, string> = getGenderCriteria();
-  const vitalStatusHeaders: SvelteMap<string, string> =
-    getVitalStatusCriteria();
-
   const barChartBackgroundColors: string[] = ["#4dc9f6", "#3da4c7"];
 
   const therapyHeaders: Map<string, string> = new SvelteMap<
@@ -223,7 +214,6 @@
           dataKey="gender"
           chartType="pie"
           displayLegends={true}
-          headers={genderHeaders}
         ></lens-chart>
       </div>
       <div class="chart-wrapper chart-diagnosis">
@@ -258,7 +248,6 @@
           dataKey={VITAL_STATUS_LOINC_CODE}
           chartType="pie"
           displayLegends={true}
-          headers={vitalStatusHeaders}
         >
           <div>
             "Deceased" indicates that a date of death has been recorded. The
