@@ -111,34 +111,48 @@
 <header class="header">
   <div class="header-wrapper">
     <div class="logo">
-      <img src="../logo-CCE-GR.jpg" alt="Gustave Roussy" />
+      <a href="https://www.gustaveroussy.fr/" target="_blank">
+        <img src="../logo-CCE-GR.jpg" alt="Gustave Roussy" />
+      </a>
     </div>
     <div class="logo">
-      <img src="../logo-CCE-KI.svg" alt="Karlosinska Institutet" />
+      <a href="https://ki.se/en/" target="_blank">
+        <img src="../logo-CCE-KI.svg" alt="Karlosinska Institutet" />
+      </a>
     </div>
     <div class="logo">
-      <img
-        src="../logo-CCE-VHIO.png"
-        alt="Vall d’Hebron Instituto de Oncología"
-      />
+      <a href="https://vhio.net/es/inicio/" target="_blank">
+        <img
+          src="../logo-CCE-VHIO.png"
+          alt="Vall d’Hebron Instituto de Oncología"
+        />
+      </a>
     </div>
     <div class="logo">
-      <img src="../logo-CCE-NKI.svg" alt="Netherlands Cancer Institute" />
+      <a href="https://www.nki.nl/" target="_blank">
+        <img src="../logo-CCE-NKI.svg" alt="Netherlands Cancer Institute" />
+      </a>
     </div>
     <div class="logo">
-      <img
-        src="../logo-CCE-INT.jpg"
-        alt="Fondazione IRCCSIstituto Nazionale dei Tumori"
-      />
+      <a href="https://www.istitutotumori.mi.it/" target="_blank">
+        <img
+          src="../logo-CCE-INT.jpg"
+          alt="Fondazione IRCCS Istituto Nazionale dei Tumori"
+        />
+      </a>
     </div>
     <div class="logo">
-      <img
-        src="../logo-CCE-CRUK.png"
-        alt="Cancer Research UK Cambridge Centre"
-      />
+      <a href="https://crukcambridgecentre.org.uk/" target="_blank">
+        <img
+          src="../logo-CCE-CRUK.png"
+          alt="Cancer Research UK Cambridge Centre"
+        />
+      </a>
     </div>
     <div class="logo">
-      <img src="../logo-CCE-DKFZ.svg" alt="German Cancer Research Center" />
+      <a href="https://www.dkfz.de/en/" target="_blank">
+        <img src="../logo-CCE-DKFZ.svg" alt="German Cancer Research Center" />
+      </a>
     </div>
     <h1>CCE VDC Explorer</h1>
   </div>
