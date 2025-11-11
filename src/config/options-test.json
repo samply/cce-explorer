@@ -2,13 +2,9 @@
   "spotUrl": "http://localhost:8055",
   "language": "en",
   "siteMappings": {
-    "proxy2": "proxy2",
-    "cce-dkfz": "German Cancer Research Center 🇩🇪",
-    "cce-gr": "Gustave Roussy 🇫🇷",
-    "cce-ki": "Karolinska Institutet 🇸🇪",
-    "cce-nki": "Netherlands Cancer Institute 🇳🇱",
-    "cce-vhio": "Vall d'Hebron Institute of Oncology 🇪🇸",
-    "cce-cruk-cc": "Cancer Research UK Cambridge Center 🇬🇧"
+    "pscc-dkfz": "Testsite",
+    "pscc-gr": "Gustave Roussy",
+    "pscc-ic": "Institut Curie"
   },
   "chartOptions": {
     "gender": {
