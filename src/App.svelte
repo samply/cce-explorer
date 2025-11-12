@@ -110,51 +110,27 @@
 
 <header class="header">
   <div class="header-wrapper">
-    <div class="logo">
-      <a href="https://www.gustaveroussy.fr/" target="_blank">
-        <img src="../logo-CCE-GR.jpg" alt="Gustave Roussy" />
-      </a>
-    </div>
-    <div class="logo">
-      <a href="https://ki.se/en/" target="_blank">
-        <img src="../logo-CCE-KI.svg" alt="Karlosinska Institutet" />
-      </a>
-    </div>
-    <div class="logo">
-      <a href="https://vhio.net/es/inicio/" target="_blank">
-        <img
-          src="../logo-CCE-VHIO.png"
-          alt="Vall d’Hebron Instituto de Oncología"
-        />
-      </a>
-    </div>
-    <div class="logo">
-      <a href="https://www.nki.nl/" target="_blank">
-        <img src="../logo-CCE-NKI.svg" alt="Netherlands Cancer Institute" />
-      </a>
-    </div>
-    <div class="logo">
-      <a href="https://www.istitutotumori.mi.it/" target="_blank">
-        <img
-          src="../logo-CCE-INT.jpg"
-          alt="Fondazione IRCCS Istituto Nazionale dei Tumori"
-        />
-      </a>
-    </div>
-    <div class="logo">
-      <a href="https://crukcambridgecentre.org.uk/" target="_blank">
-        <img
-          src="../logo-CCE-CRUK.png"
-          alt="Cancer Research UK Cambridge Centre"
-        />
-      </a>
-    </div>
-    <div class="logo">
+    <div class="logo-dkfz">
       <a href="https://www.dkfz.de/en/" target="_blank">
-        <img src="../logo-CCE-DKFZ.svg" alt="German Cancer Research Center" />
+        <img src="../logo-dkfz.svg" alt="DKFZ" />
       </a>
     </div>
-    <h1>CCE VDC Explorer</h1>
+    <div class="logo-cr">
+      <a href="https://institut-curie.org/" target="_blank">
+        <img src="../logo-PSCC-curie.svg" alt="Institut Curie" />
+      </a>
+    </div>
+    <div class="logo-gr">
+      <a href="https://www.gustaveroussy.fr/" target="_blank">
+        <img src="../logo-PSCC-GR.svg" alt="Gustave Roussy" />
+      </a>
+    </div>
+    <h1 class="pscc">PSCC Explorer</h1>
+    <div class="logo-pscc">
+      <a href="https://www.parissaclaycancercluster.org/" target="_blank">
+        <img src="../logo-PSCC-data.svg" alt="Paris Saclay Cancer Cluster" />
+      </a>
+    </div>
   </div>
 </header>
 <main>
@@ -313,15 +289,7 @@
     >
   </div>
   &nbsp;
-  <div>
-    More information in
-    <a
-      href="https://wiki.verbis.dkfz.de/display/CCE/Cancer+Core+Europe+Home"
-      target="_blank"
-    >
-      Confluence
-    </a>
-  </div>
+
 </footer>
 
 <error-toasts></error-toasts>
