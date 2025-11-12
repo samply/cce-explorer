@@ -75,19 +75,30 @@ header {
 
 .header-wrapper {
   background-color: var(--white);
-  padding: var(--gap-xs);
+  padding-top: 0px;
+  padding-right: 10px;
+  padding-bottom: 0px;
+  padding-left: 10px;
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: auto auto auto 1fr auto;
   border-radius: var(--border-radius-small);
   border: solid 1px var(--lightest-gray);
+  gap: 40px;
+}
+
+.logo {
+  flex: 0 1 auto;
+  display: flex;
+  align-items: center;
 }
 
 .logo img {
-  height: 60px;
+  height: 110px;
 }
 
-.logo-dkfz {
+.logo-pscc {
+  grid-column: 5;
   justify-self: end;
 }
 
@@ -95,10 +106,22 @@ header {
   height: 60px;
 }
 
+.logo-cr img {
+  height: 80px;
+}
+
+.logo-pscc img {
+  height: 80px;
+}
+
+.logo-gr img {
+  height: 120px;
+}
+
 header h1 {
   text-align: center;
   font-size: var(--font-size-xxl);
-  font-weight: lighter;
+  font-weight: normal;
   color: var(--blue);
   margin: 0;
 }
@@ -113,7 +136,7 @@ footer {
   background-color: var(--ghost-white);
   position: sticky;
   position: -webkit-sticky;
-  top: 86px;
+  top: 130px;
   z-index: 1;
 }
 
