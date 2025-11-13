@@ -110,26 +110,23 @@
 
 <header class="header">
   <div class="header-wrapper">
-    <div class="logo-dkfz">
-      <a href="https://www.dkfz.de/en/" target="_blank">
-        <img src="../logo-dkfz.svg" alt="DKFZ" />
-      </a>
-    </div>
-    <div class="logo-cr">
-      <a href="https://institut-curie.org/" target="_blank">
-        <img src="../logo-PSCC-curie.svg" alt="Institut Curie" />
-      </a>
-    </div>
-    <div class="logo-gr">
-      <a href="https://www.gustaveroussy.fr/" target="_blank">
-        <img src="../logo-PSCC-GR.svg" alt="Gustave Roussy" />
-      </a>
-    </div>
-    <h1 class="pscc">PSCC Explorer</h1>
     <div class="logo-pscc">
       <a href="https://www.parissaclaycancercluster.org/" target="_blank">
         <img src="../logo-PSCC-data.svg" alt="Paris Saclay Cancer Cluster" />
       </a>
+    </div>
+    <h1 class="pscc">PSCC Explorer</h1>
+    <div class="header-right">
+      <div class="logo-cr">
+        <a href="https://institut-curie.org/" target="_blank">
+          <img src="../logo-PSCC-curie.svg" alt="Institut Curie" />
+        </a>
+      </div>
+      <div class="logo-gr">
+        <a href="https://www.gustaveroussy.fr/" target="_blank">
+          <img src="../logo-PSCC-GR.svg" alt="Gustave Roussy" />
+        </a>
+      </div>
     </div>
   </div>
 </header>
@@ -283,13 +280,16 @@
 </main>
 
 <footer>
-  <div>
+  <div class="logo-dkfz">
+    <a href="https://www.dkfz.de/en/" target="_blank">
+      <img src="../logo-dkfz.svg" alt="DKFZ" />
+    </a>
+  </div>
+  <div class="footer-text">
     Made with ♥ and<a href="https://github.com/samply/lens/" target="_blank"
       >samply/lens</a
     >
   </div>
-  &nbsp;
-
 </footer>
 
 <error-toasts></error-toasts>
