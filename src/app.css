@@ -81,10 +81,14 @@ header {
   padding-left: 10px;
   display: grid;
   align-items: center;
-  grid-template-columns: auto auto auto 1fr auto;
+  grid-template-columns: auto 1fr auto;
   border-radius: var(--border-radius-small);
   border: solid 1px var(--lightest-gray);
   gap: 40px;
+}
+.header-wrapper img {
+  margin: 20px 10px 10px 10px;
+  object-fit: contain;
 }
 
 .logo {
@@ -93,33 +97,27 @@ header {
   align-items: center;
 }
 
-.logo img {
-  height: 110px;
-}
-
-.logo-pscc {
-  grid-column: 5;
-  justify-self: end;
-}
-
-.logo-dkfz img {
-  height: 60px;
+.logo-pscc img {
+  height: 80px;
 }
 
 .logo-cr img {
   height: 80px;
 }
 
-.logo-pscc img {
+.logo-gr img {
   height: 80px;
 }
 
-.logo-gr img {
-  height: 120px;
+.header-right {
+  display: flex;
+  gap: 40px;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 header h1 {
-  text-align: center;
+  text-align: left;
   font-size: var(--font-size-xxl);
   font-weight: normal;
   color: var(--blue);
@@ -272,18 +270,25 @@ info-icon {
 }
 
 footer {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  gap:40px;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
   padding: var(--gap-s);
   background-color: var(--white);
-  border-radius: var(--border-radius-small);
+  border-radius: 0 var(--border-radius-small);
   border: solid 1px var(--lightest-gray);
+  margin: var(--gap-xs);
 }
 
 footer a {
   color: var(--blue);
   padding: 0 var(--gap-xs);
   border-right: solid 1px var(--blue);
+}
+
+.logo-dkfz img {
+  height: 60px;
 }
 
 .imprint {
