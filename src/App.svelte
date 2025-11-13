@@ -15,7 +15,7 @@
   import { options } from "./lib/env-options";
   import { onMount } from "svelte";
   import { SvelteMap } from "svelte/reactivity";
-  import catalogueProd from "./config/pscc-catalogue.json";
+  import catalogueProd from "./config/pscc-catalogue-new.json";
 
   let abortController = new AbortController();
 
@@ -199,6 +199,7 @@
         <lens-chart
           title="Sex"
           dataKey="gender"
+          filterRegex={"^(male|female)$"}
           chartType="pie"
           displayLegends={true}
         ></lens-chart>
@@ -228,19 +229,6 @@
           yAxisTitle="Primary diagnoses count"
           backgroundColor={barChartBackgroundColors}
         ></lens-chart>
-      </div>
-      <div class="chart-wrapper">
-        <lens-chart
-          title="Vital Status*"
-          dataKey={VITAL_STATUS_LOINC_CODE}
-          chartType="pie"
-          displayLegends={true}
-        >
-          <div>
-            "Deceased" indicates that a date of death has been recorded. The
-            other values in this overview have not been harmonized yet.
-          </div>
-        </lens-chart>
       </div>
       <div class="chart-wrapper">
         <lens-chart
