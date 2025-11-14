@@ -228,7 +228,7 @@ info-icon {
 }
 
 .chart-age-distribution {
-  grid-column: span 2;
+  grid-column: span 4;
 }
 
 .sample-information-text {
