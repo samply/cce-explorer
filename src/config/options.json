@@ -1,21 +1,19 @@
 {
-  "spotUrl": "https://e260-serv-13/prod/",
+  "spotUrl": "http://localhost:8055",
   "language": "en",
   "siteMappings": {
-    "cce-dkfz": "German Cancer Research Center 🇩🇪",
-    "cce-gr": "Gustave Roussy 🇫🇷",
-    "cce-ki": "Karolinska Institutet 🇸🇪",
-    "cce-nki": "Netherlands Cancer Institute 🇳🇱",
-    "cce-vhio": "Vall d'Hebron Institute of Oncology 🇪🇸",
-    "cce-cruk-cc": "Cancer Research UK Cambridge Center 🇬🇧"
+    "pscc-dkfz": "Institut Curie",
+    "cce-dkfz": "Gustave Roussy",
+    "cce-manoj": "Gustave Roussy",
+    "pscc-gr": "Gustave Roussy",
+    "pscc-ic": "Institut Curie"
   },
   "chartOptions": {
     "gender": {
       "legendMapping": {
         "male": "Male",
         "female": "Female",
-        "other": "Other",
-        "unknown": "Unknown"
+        "other": "Other"
       }
     },
     "75186-7": {
@@ -25,9 +23,9 @@
         "unknown": "Unknown"
       },
       "hintText": [
-        "\"deceased\": a date of death is documented or the current age is greater than 123 years.",
-        "\"alive\": is assumed if no date of death is documented or the current age has not exceeded 123 years.",
-        "\"unknown\": No date of birth or death known."
+        "\"Deceased\": a date of death is documented or the current age is greater than 123 years.",
+        "\"Alive\": is assumed if no date of death is documented or the current age has not exceeded 123 years.",
+        "\"Unknown\": No date of birth or death known."
       ]
     }
   },

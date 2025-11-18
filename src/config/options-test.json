@@ -11,8 +11,7 @@
       "legendMapping": {
         "male": "Male",
         "female": "Female",
-        "other": "Other",
-        "unknown": "Unknown"
+        "other": "Other"
       }
     },
     "75186-7": {

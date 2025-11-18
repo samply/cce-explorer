@@ -15,13 +15,13 @@ services:
       BEAM_SECRET: "${LOCAL_BEAM_SECRET_SPOT}"
       BEAM_PROXY_URL: http://beam-proxy:8081
       BEAM_APP_ID: "spot.${LOCAL_BEAM_ID}.${BROKER_HOST}"
-      CORS_ORIGIN: "http://localhost:4173"
+      CORS_ORIGIN: "http://localhost:5173"
       SITES: ${SITES}
       TRANSFORM: LENS
       BIND_ADDR: 0.0.0.0:8055
       RUST_LOG: "info"
       LOG_FILE: /logs/requests.log
-      PROJECT: "cce"
+      PROJECT: "pscc"
     volumes:
       - ./logs:/logs
     depends_on:
