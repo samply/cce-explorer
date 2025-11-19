@@ -15,7 +15,7 @@ services:
       BEAM_SECRET: "${LOCAL_BEAM_SECRET_SPOT}"
       BEAM_PROXY_URL: http://beam-proxy:8081
       BEAM_APP_ID: "spot.${LOCAL_BEAM_ID}.${BROKER_HOST}"
-      CORS_ORIGIN: "http://localhost:4173"
+      CORS_ORIGIN: "https://${GUI_HOST}"
       SITES: ${SITES}
       TRANSFORM: LENS
       BIND_ADDR: 0.0.0.0:8055
