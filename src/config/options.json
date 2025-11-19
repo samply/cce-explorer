@@ -1,0 +1,67 @@
+{
+  "language": "en",
+  "siteMappings": {
+    "cce-dkfz": "German Cancer Research Center 🇩🇪",
+    "cce-gr": "Gustave Roussy 🇫🇷",
+    "cce-ki": "Karolinska Institutet 🇸🇪",
+    "cce-nki": "Netherlands Cancer Institute 🇳🇱",
+    "cce-vhio": "Vall d'Hebron Institute of Oncology 🇪🇸",
+    "cce-cruk-cc": "Cancer Research UK Cambridge Center 🇬🇧"
+  },
+  "chartOptions": {
+    "gender": {
+      "legendMapping": {
+        "male": "Male",
+        "female": "Female",
+        "other": "Other",
+        "unknown": "Unknown"
+      }
+    },
+    "75186-7": {
+      "legendMapping": {
+        "alive": "Alive",
+        "deceased": "Deceased",
+        "unknown": "Unknown"
+      },
+      "hintText": [
+        "\"deceased\": a date of death is documented or the current age is greater than 123 years.",
+        "\"alive\": is assumed if no date of death is documented or the current age has not exceeded 123 years.",
+        "\"unknown\": No date of birth or death known."
+      ]
+    }
+  },
+  "tableOptions": {
+    "headerData": [
+      {
+        "title": "Sites",
+        "dataKey": "site"
+      },
+      {
+        "title": "Patients",
+        "dataKey": "patients"
+      },
+      {
+        "title": "Specimen",
+        "dataKey": "specimen"
+      }
+    ]
+  },
+  "resultSummaryOptions": {
+    "title": "Results",
+    "infoButtonText": "Results",
+    "dataTypes": [
+      {
+        "title": "Sites",
+        "dataKey": "collections"
+      },
+      {
+        "title": "Patients",
+        "dataKey": "patients"
+      },
+      {
+        "title": "Diagnosis",
+        "dataKey": "diagnosis"
+      }
+    ]
+  }
+}

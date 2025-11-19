@@ -1,0 +1,46 @@
+services:
+  lens:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      PUBLIC_ENVIRONMENT: ${PUBLIC_ENVIRONMENT}
+
+  spot:
+    image: samply/rustyspot:main
+    platform: linux/amd64
+    ports:
+      - "8055:8055"
+    environment:
+      BEAM_SECRET: "${LOCAL_BEAM_SECRET_SPOT}"
+      BEAM_PROXY_URL: http://beam-proxy:8081
+      BEAM_APP_ID: "spot.${LOCAL_BEAM_ID}.${BROKER_HOST}"
+      CORS_ORIGIN: "http://localhost:4173"
+      SITES: ${SITES}
+      TRANSFORM: LENS
+      BIND_ADDR: 0.0.0.0:8055
+      RUST_LOG: "info"
+      LOG_FILE: /logs/requests.log
+      PROJECT: "cce"
+    volumes:
+      - ./logs:/logs
+    depends_on:
+      - "beam-proxy"
+
+  beam-proxy:
+    image: docker.verbis.dkfz.de/cache/samply/beam-proxy:develop
+    platform: linux/amd64
+    environment:
+      BROKER_URL: https://${BROKER_HOST}
+      PROXY_ID: ${LOCAL_BEAM_ID}.${BROKER_HOST}
+      APP_spot_KEY: ${LOCAL_BEAM_SECRET_SPOT}
+      PRIVKEY_FILE: /run/secrets/proxy.pem
+    secrets:
+      - proxy.pem
+      - root.crt.pem
+
+secrets:
+  proxy.pem:
+    file: /etc/bridgehead/pki/${LOCAL_BEAM_ID}.priv.pem
+  root.crt.pem:
+    file: certs/root.crt.pem
