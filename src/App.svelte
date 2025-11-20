@@ -15,7 +15,7 @@
   import { options } from "./lib/env-options";
   import { onMount } from "svelte";
   import { SvelteMap } from "svelte/reactivity";
-  import catalogueProd from "./config/catalogue.json";
+  import catalogueProd from "./config/pscc-catalogue-new.json";
   import { env } from "$env/dynamic/public";
 
   let abortController = new AbortController();
