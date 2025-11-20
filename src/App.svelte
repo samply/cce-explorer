@@ -1,6 +1,6 @@
 <script lang="ts">
   import "./app.css";
-  import type { Catalogue, SpotResult } from "@samply/lens";
+  import type { Catalogue, LensOptions, SpotResult } from "@samply/lens";
   import {
     setOptions,
     setCatalogue,
@@ -16,6 +16,7 @@
   import { onMount } from "svelte";
   import { SvelteMap } from "svelte/reactivity";
   import catalogueProd from "./config/pscc-catalogue-new.json";
+  import { env } from "$env/dynamic/public";
 
   let abortController = new AbortController();
 
@@ -65,6 +66,8 @@
   });
 
   onMount(() => {
+    let newoptions: LensOptions = options;
+    newoptions.spotUrl = env.PUBLIC_SPOT_URL;
     setOptions(options);
 
     // Set the catalogue based on the environment
