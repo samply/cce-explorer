@@ -1,11 +1,10 @@
 {
   "language": "en",
   "siteMappings": {
-    "pscc-dkfz": "Institut Curie",
-    "cce-dkfz": "Gustave Roussy",
-    "cce-manoj": "Gustave Roussy",
-    "pscc-gr": "Gustave Roussy",
-    "pscc-ic": "Institut Curie"
+    "dkfz": "Institut Curie test",
+    "pierre-test": "Gustave Roussy test",
+    "gr": "Gustave Roussy",
+    "ic": "Institut Curie"
   },
   "chartOptions": {
     "gender": {

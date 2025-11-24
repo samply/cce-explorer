@@ -5,6 +5,7 @@ services:
       - "3000:3000"
     environment:
       PUBLIC_ENVIRONMENT: ${PUBLIC_ENVIRONMENT}
+      PUBLIC_SPOT_URL: "http://localhost:8055"
 
   spot:
     image: samply/rustyspot:main
