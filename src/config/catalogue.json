@@ -8,7 +8,6 @@
         "fieldType": "single-select",
         "key": "gender",
         "name": "Gender",
-        "system": "",
         "type": "EQUALS",
         "criteria": [
           {
@@ -25,7 +24,6 @@
         "fieldType": "single-select",
         "key": "vitalStatusCS",
         "name": "Vital Status",
-        "system": "https://www.cancercoreeurope.eu/fhir/core/CodeSystem/VitalStatusCS",
         "type": "EQUALS",
         "criteria": [
           {
@@ -48,7 +46,6 @@
       {
         "key": "year_of_diagnosis",
         "name": "Year of Diagnosis",
-        "system": "",
         "fieldType": "number",
         "type": "BETWEEN",
         "min": 1900,
@@ -57,7 +54,6 @@
       {
         "key": "age_at_diagnosis",
         "name": "Age at Diagnosis",
-        "system": "",
         "fieldType": "number",
         "type": "BETWEEN",
         "min": 0,
@@ -66,7 +62,6 @@
       {
         "key": "diagnosis",
         "name": "Diagnosis ICD-10",
-        "system": "http://fhir.de/CodeSystem/dimdi/icd-10-gm",
         "fieldType": "autocomplete",
         "type": "EQUALS",
         "infoButtonText": [
@@ -5539,7 +5534,6 @@
       {
         "key": "59847-4",
         "name": "Morphology ICD-O-3",
-        "system": "http://fhir.de/CodeSystem/dimdi/icd-10-gm",
         "fieldType": "autocomplete",
         "type": "EQUALS",
         "criteria": [
@@ -8105,7 +8099,6 @@
         "fieldType": "single-select",
         "key": "bodySite",
         "name": "Side Location",
-        "system": "",
         "type": "EQUALS",
         "criteria": [
           {
@@ -8138,7 +8131,6 @@
         "fieldType": "single-select",
         "key": "21908-9",
         "name": "UICC Stage",
-        "system": "https://www.cancercoreeurope.eu/fhir/core/CodeSystem/UICCStageCS",
         "type": "EQUALS",
         "criteria": [
           {
@@ -8256,7 +8248,6 @@
             "fieldType": "single-select",
             "key": "21905-5",
             "name": "TNM-T",
-            "system": "",
             "type": "EQUALS",
             "criteria": [
               {
@@ -8425,7 +8416,6 @@
             "fieldType": "single-select",
             "key": "21906-3",
             "name": "TNM-N",
-            "system": "",
             "type": "EQUALS",
             "criteria": [
               {
@@ -8510,7 +8500,6 @@
             "fieldType": "single-select",
             "key": "21907-1",
             "name": "TNM-M",
-            "system": "",
             "type": "EQUALS",
             "criteria": [
               {
@@ -8572,7 +8561,6 @@
         "fieldType": "single-select",
         "key": "procedure",
         "name": "Operation / Radiotherapy",
-        "system": "",
         "type": "EQUALS",
         "criteria": [
           {
@@ -8589,7 +8577,6 @@
         "fieldType": "single-select",
         "key": "medicationStatement",
         "name": "Other Therapies",
-        "system": "",
         "type": "EQUALS",
         "criteria": [
           {
@@ -8621,7 +8608,6 @@
         "fieldType": "single-select",
         "key": "sample_kind",
         "name": "Sample Type",
-        "system": "",
         "type": "EQUALS",
         "criteria": [
           {
