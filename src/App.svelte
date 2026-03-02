@@ -10,6 +10,7 @@
     querySpot,
     getAst,
   } from "@samply/lens";
+  import { v4 as uuidv4 } from "uuid";
   import { VITAL_STATUS_LOINC_CODE } from "$lib/constants";
   import { negotiate } from "./lib/project-manager";
   import { options } from "./lib/env-options";
@@ -28,9 +29,7 @@
     const query = btoa(
       JSON.stringify({
         lang: "ast",
-        payload: btoa(
-          JSON.stringify({ ast: getAst(), id: crypto.randomUUID() }),
-        ),
+        payload: btoa(JSON.stringify({ ast: getAst(), id: uuidv4() })),
       }),
     );
     querySpot(query, abortController.signal, (result: SpotResult) => {

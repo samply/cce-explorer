@@ -7,6 +7,17 @@ The `docker-compose.yml` file uses:
 - values for `LOCAL_BEAM_SECRET_SPOT, LOCAL_BEAM_ID, SITES` etc. from the `.env` file
 - certificates from the `/certs` folder
 
+### Committing and pushing to GH
+
+Please run the following before pushing to GH:
+
+```bash
+bash scripts/validate-json-schema.bash
+npm install
+npm run lint
+npm run format
+```
+
 ### Catalogue
 
 The `catalogue.json` file expected by any project-specific explorer (i.e. this **new** Lens) is obtained from the _catalogue_ definitions from the **old** project-specific explorer (i.e. the old Lens). For this purpose, a [lens-catalogue-transformer](https://git.verbis.dkfz.de/lens/lens-catalogue-transformer.git) tool is written. Please check the `README.md` file of the above tool to transform your old catalogues to a new format.

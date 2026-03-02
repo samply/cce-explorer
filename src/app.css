@@ -5,6 +5,12 @@
     format("truetype");
 }
 
+@font-face {
+  font-family: "Noto Color Emoji";
+  src: url("../fonts/Noto_Color_Emoji/NotoColorEmoji-Regular.ttf")
+    format("truetype");
+}
+
 :root {
   --white: #ffffff;
   --ghost-white: #f8f8ff;
@@ -44,7 +50,7 @@
   --font-size-xl: 24px;
   --font-size-xxl: 32px;
 
-  --font-family: "Open Sans", sans-serif;
+  --font-family: "Open Sans", "Noto Color Emoji", sans-serif;
 }
 
 /**
