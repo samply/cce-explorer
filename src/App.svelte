@@ -21,6 +21,59 @@
 
   let abortController = new AbortController();
 
+  // // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // function normalizeStratifierUsingAggregator(
+  //   siteResult: unknown,
+  //   stratKey: string,
+  //   aggregator: (
+  //     values: Array<{ key: string; population: number }>,
+  //   ) => Array<{ key: string; population: number }>,
+  // ) {
+  //   // @ts-expect-error Property 'stratifiers'
+  //   const s = siteResult?.stratifiers;
+  //   if (!s || !s[stratKey]) return;
+
+  //   // object -> array
+  //   const asArray = Object.entries(s[stratKey]).map(([key, population]) => ({
+  //     key,
+  //     population: Number(population) || 0,
+  //   }));
+
+  //   // normalize
+  //   const normalized = aggregator(asArray);
+
+  //   // array -> object
+  //   s[stratKey] = Object.fromEntries(
+  //     normalized.map(({ key, population }) => [key, population]),
+  //   );
+  // }
+
+  // // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // const normalizeGenderAggregator = (
+  //   values: Array<{ key: string; population: number }>,
+  // ) => {
+  //   // eslint-disable-next-line svelte/prefer-svelte-reactivity
+  //   const map = new Map<string, number>();
+  //   const canon = (raw: string) => {
+  //     const k = raw.trim().toLowerCase();
+  //     if (k === "m" || k === "male") return "Male";
+  //     if (k === "f" || k === "female") return "Female";
+  //     if (["other", "diverse"].includes(k)) return "Other";
+  //     if (["unknown", "unbekannt", "unk", "n/a", "na"].includes(k))
+  //       return "Unknown";
+  //     return raw.charAt(0).toUpperCase() + raw.slice(1);
+  //   };
+
+  //   for (const { key, population } of values) {
+  //     const c = canon(key);
+  //     map.set(c, (map.get(c) || 0) + (Number(population) || 0));
+  //   }
+  //   return [...map.entries()].map(([key, population]) => ({
+  //     key,
+  //     population,
+  //   }));
+  // };
+
   window.addEventListener("lens-search-triggered", () => {
     abortController.abort();
     abortController = new AbortController();
@@ -50,6 +103,13 @@
         //   "-10": 62,
         // };
         // console.log("siteResult ", siteResult);
+
+        // normalizeStratifierUsingAggregator(
+        //   siteResult,
+        //   "gender",
+        //   normalizeGenderAggregator,
+        // );
+
         setSiteResult(site, siteResult);
       } else {
         console.error(
