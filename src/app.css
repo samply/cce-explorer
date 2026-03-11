@@ -5,12 +5,12 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  unicode-range: U+1F300-1F9FF, U+1F000-1F64F, U+1F680-1F6FF,
-    U+1F1E0-1F1FF, U+2600-27BF, U+2300-23FF, U+2000-206F,
-    U+3000-303F, U+0020-007E, U+0080-00FF, U+0100-017F,
-    U+0180-024F, U+0250-02AF, U+2070-209F, U+20A0-20CF,
-    U+20D0-20FF, U+2100-214F, U+2150-218F, U+2190-27FF,
-    U+2900-297F, U+2B00-2BFF, U+1F900-1F9FF;
+  unicode-range:
+    U+1F300-1F9FF, U+1F000-1F64F, U+1F680-1F6FF, U+1F1E0-1F1FF, U+2600-27BF,
+    U+2300-23FF, U+2000-206F, U+3000-303F, U+0020-007E, U+0080-00FF,
+    U+0100-017F, U+0180-024F, U+0250-02AF, U+2070-209F, U+20A0-20CF,
+    U+20D0-20FF, U+2100-214F, U+2150-218F, U+2190-27FF, U+2900-297F,
+    U+2B00-2BFF, U+1F900-1F9FF;
 }
 
 @font-face {
@@ -61,7 +61,9 @@
   --font-size-xl: 24px;
   --font-size-xxl: 32px;
 
-  --font-family: "Open Sans", "Noto Color Emoji", "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+  --font-family:
+    "Open Sans", "Noto Color Emoji", "Segoe UI Emoji", "Apple Color Emoji",
+    sans-serif;
 }
 
 /**
