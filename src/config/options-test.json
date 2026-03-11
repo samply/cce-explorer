@@ -2,13 +2,14 @@
   "language": "en",
   "siteMappings": {
     "proxy2": "proxy2",
-    "cce-dkfz": "German Cancer Research Center 🇩🇪",
+    "cce-dkfz": "German Cancer Research Center (Test)🇩🇪",
+    "cce-dkfz-nct": "German Cancer Research Center 🇩🇪",
     "cce-gr": "Gustave Roussy 🇫🇷",
     "cce-ki": "Karolinska Institutet 🇸🇪",
     "cce-nki": "Netherlands Cancer Institute 🇳🇱",
     "cce-vhio": "Vall d'Hebron Institute of Oncology 🇪🇸",
-    "cce-cruk-cc": "Cancer Research UK Cambridge Center 🇬🇧",
-    "cce-cruk-cc-dev": "Cancer Research UK Cambridge Center (Test/Dev) 🇬🇧"
+    "cce-cruk-cc": "Cancer Research UK Cambridge Center (Prod) 🇬🇧",
+    "cce-cruk-cc-dev": "Cancer Research UK Cambridge Center 🇬🇧"
   },
   "chartOptions": {
     "gender": {
