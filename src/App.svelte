@@ -162,7 +162,19 @@
   };
 
   let catalogueOpen: boolean = false;
-  const barChartBackgroundColors: string[] = ["#4dc9f6", "#3da4c7"];
+
+  // const barChartBackgroundColors: string[] = ["#4dc9f6", "#3da4c7"];
+  const cccUkColors: string[] = ["#2E008B"]; // strong purple
+  const grFranceColors: string[] = ["#cfd502"]; // parrot green
+  const germanyFlagColors: string[] = ["#DD0000", "#FFCE00"]; // red, yellow
+  const intItalyColors: string[] = ["#129427"]; // green
+  const kiColors: string[] = ["#870052"]; // magenta
+
+  const barChartBackgroundColors: string[] = cccUkColors
+    .concat(grFranceColors)
+    .concat(germanyFlagColors)
+    .concat(intItalyColors)
+    .concat(kiColors);
 
   const therapyHeaders: Map<string, string> = new SvelteMap<
     string,
@@ -274,6 +286,7 @@
           chartType="pie"
           perSite={true}
           displayLegends={true}
+          backgroundColor={barChartBackgroundColors}
         ></lens-chart>
       </div>
       <div class="chart-wrapper result-table">
@@ -290,6 +303,7 @@
           dataKey="gender"
           chartType="pie"
           displayLegends={true}
+          backgroundColor={barChartBackgroundColors}
         ></lens-chart>
       </div>
       <div class="chart-wrapper chart-diagnosis">
@@ -309,7 +323,7 @@
       <div class="chart-wrapper chart-age-distribution">
         <lens-chart
           title="Age at first diagnosis"
-          dataKey="age_at_diagnosis"
+          dataKey="Age"
           chartType="bar"
           groupRange={10}
           filterRegex="^(([0-9]?[0-9]$)|(1[0-2]0))"
@@ -324,6 +338,7 @@
           dataKey={VITAL_STATUS_LOINC_CODE}
           chartType="pie"
           displayLegends={true}
+          backgroundColor={barChartBackgroundColors}
         >
           <div>
             "Deceased" indicates that a date of death has been recorded. The
