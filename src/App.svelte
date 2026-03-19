@@ -164,14 +164,14 @@
   let catalogueOpen: boolean = false;
 
   // const barChartBackgroundColors: string[] = ["#4dc9f6", "#3da4c7"];
-  const cccUkColors: string[] = ["#2E008B"]; // strong purple
-  const grFranceColors: string[] = ["#cfd502"]; // parrot green
-  const germanyFlagColors: string[] = ["#DD0000", "#FFCE00"]; // red, yellow
-  const intItalyColors: string[] = ["#129427"]; // green
-  const kiColors: string[] = ["#870052"]; // magenta
+  const cccUkColors: string[] = ["#4A6C8C"]; // soft blue
+  const grFranceColors: string[] = ["#B86A84"]; // soft pink
+  const germanyFlagColors: string[] = ["#B35A5A", "#C9A84A"]; // muted red, yellow
+  const intItalyColors: string[] = ["#5F8A6A"]; // soft green
+  const kiColors: string[] = ["#6A4A63"]; // grayed purple
 
-  const barChartBackgroundColors: string[] = cccUkColors
-    .concat(grFranceColors)
+  const barChartBackgroundColors: string[] = grFranceColors
+    .concat(cccUkColors)
     .concat(germanyFlagColors)
     .concat(intItalyColors)
     .concat(kiColors);
@@ -374,7 +374,6 @@
           chartType="bar"
           xAxisTitle="Types of Specimen"
           yAxisTitle="Specimen count"
-          filterRegex="^(?!(tissue-other|buffy-coat|peripheral-blood-cells|dried-whole-blood|swab|ascites|stool-faeces|saliva|liquid-other|derivative-other))"
           backgroundColor={barChartBackgroundColors}
         >
         </lens-chart>
@@ -396,7 +395,7 @@
       href="https://wiki.verbis.dkfz.de/display/CCE/Cancer+Core+Europe+Home"
       target="_blank"
     >
-      Confluence
+      CCE Wiki
     </a>
   </div>
 </footer>
