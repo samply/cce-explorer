@@ -374,7 +374,6 @@
           chartType="bar"
           xAxisTitle="Types of Specimen"
           yAxisTitle="Specimen count"
-          filterRegex="^(?!(tissue-other|buffy-coat|peripheral-blood-cells|dried-whole-blood|swab|ascites|stool-faeces|saliva|liquid-other|derivative-other))"
           backgroundColor={barChartBackgroundColors}
         >
         </lens-chart>

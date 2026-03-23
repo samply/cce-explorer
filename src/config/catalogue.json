@@ -8611,34 +8611,14 @@
         "type": "EQUALS",
         "criteria": [
           {
-            "key": "tumor-tissue-ffpe",
-            "name": "Tumor Tissue (FFPE)",
-            "description": "Tumor Tissue (FFPE)"
+            "key": "tissue-other",
+            "name": "Tumor Tissue other",
+            "description": "Tumor Tissue"
           },
           {
-            "key": "tumor-tissue-frozen",
-            "name": "Tumor Tissue (Frozen)",
-            "description": "Tumor Tissue (Frozen)"
-          },
-          {
-            "key": "normal-tissue-ffpe",
-            "name": "NormalTissueFfpe",
-            "description": "Normal Tissue (FFPE)"
-          },
-          {
-            "key": "normal-tissue-frozen",
-            "name": "Normal Tissue (Frozen)",
-            "description": "Normal Tissue (Frozen)"
-          },
-          {
-            "key": "whole-blood",
-            "name": "Whole Blood",
-            "description": "Whole Blood"
-          },
-          {
-            "key": "blood-serum",
-            "name": "Serum",
-            "description": "Serum"
+            "key": "tissue-ffpe",
+            "name": "Tumor Tissue FFPE",
+            "description": "Tumor Tissue"
           },
           {
             "key": "blood-plasma",
@@ -8646,34 +8626,29 @@
             "description": "Plasma"
           },
           {
-            "key": "urine",
-            "name": "Urine",
-            "description": "Urine"
+            "key": "blood-serum",
+            "name": "Serum",
+            "description": "Serum"
           },
           {
-            "key": "csf-liquor",
-            "name": "Liquor/CSF",
-            "description": "Liquor/CSF"
+            "key": "whole-blood",
+            "name": "Whole Blood",
+            "description": "Whole Blood"
           },
           {
-            "key": "stool-faeces",
-            "name": "Stool/Faeces",
-            "description": "Stool/Faeces"
+            "key": "buffy-coat",
+            "name": "Buffy coat",
+            "description": "Buffy coat"
           },
           {
-            "key": "bone-marrow",
-            "name": "Bone Marrow",
-            "description": "Bone Marrow"
+            "key": "liquid-other",
+            "name": "Liquid other",
+            "description": "Other liquid biosample/storage"
           },
           {
-            "key": "dna",
-            "name": "DNA",
-            "description": "DNA"
-          },
-          {
-            "key": "rna",
-            "name": "RNA",
-            "description": "RNA"
+            "key": "derivative-other",
+            "name": "Other derivative",
+            "description": "Other derivative"
           }
         ]
       }
