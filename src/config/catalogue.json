@@ -8611,44 +8611,44 @@
         "type": "EQUALS",
         "criteria": [
           {
-            "key": "tissue-other",
-            "name": "Tumor Tissue other",
-            "description": "Tumor Tissue"
+            "key": "buffy-coat",
+            "name": "Buffy Coat",
+            "description": "Buffy coat sample"
           },
           {
-            "key": "tissue-ffpe",
-            "name": "Tumor Tissue FFPE",
-            "description": "Tumor Tissue"
+            "key": "derivative-other",
+            "name": "Other Derivative",
+            "description": "Other derived biosample"
+          },
+          {
+            "key": "liquid-other",
+            "name": "Other Liquid",
+            "description": "Other liquid biosample or storage material"
           },
           {
             "key": "blood-plasma",
             "name": "Plasma",
-            "description": "Plasma"
+            "description": "Blood plasma sample"
           },
           {
             "key": "blood-serum",
             "name": "Serum",
-            "description": "Serum"
+            "description": "Blood serum sample"
+          },
+          {
+            "key": "tissue-ffpe",
+            "name": "Tumor Tissue (FFPE)",
+            "description": "Formalin-fixed, paraffin-embedded tumor tissue"
+          },
+          {
+            "key": "tissue-other",
+            "name": "Tumor Tissue (Other)",
+            "description": "Other tumor tissue sample"
           },
           {
             "key": "whole-blood",
             "name": "Whole Blood",
-            "description": "Whole Blood"
-          },
-          {
-            "key": "buffy-coat",
-            "name": "Buffy coat",
-            "description": "Buffy coat"
-          },
-          {
-            "key": "liquid-other",
-            "name": "Liquid other",
-            "description": "Other liquid biosample/storage"
-          },
-          {
-            "key": "derivative-other",
-            "name": "Other derivative",
-            "description": "Other derivative"
+            "description": "Whole blood sample"
           }
         ]
       }
