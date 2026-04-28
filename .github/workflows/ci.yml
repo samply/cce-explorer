@@ -21,7 +21,7 @@ jobs:
     needs: linting
     uses: samply/github-workflows/.github/workflows/docker-ci.yml@main
     with:
-      image-name: "samply/cce-explorer"
+      image-name: "samply/pscc-explorer"
       #push-to: auto
       #build-context: '.'
       #build-file: './Dockerfile'
