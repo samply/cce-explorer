@@ -1,10 +1,9 @@
 {
   "language": "en",
   "siteMappings": {
-    "dkfz": "Institut Curie test",
-    "pierre-test": "Gustave Roussy test",
     "gr": "Gustave Roussy",
-    "ic": "Institut Curie"
+    "ic": "Institut Curie",
+    "hp": "Hôpital Foch"
   },
   "chartOptions": {
     "gender": {
