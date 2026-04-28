@@ -275,7 +275,7 @@ info-icon {
 
 footer {
   display: grid;
-  gap:40px;
+  gap: 40px;
   align-items: center;
   grid-template-columns: auto 1fr auto;
   padding: var(--gap-s);

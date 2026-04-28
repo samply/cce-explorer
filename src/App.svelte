@@ -213,19 +213,19 @@
         ></lens-chart>
       </div>
       <div class="chart-wrapper chart-diagnosis">
-              <lens-chart
-                title="Diagnoses"
-                dataKey="diagnosis"
-                chartType="bar"
-                indexAxis="y"
-                groupingDivider="."
-                groupingLabel=".%"
-                filterRegex={"^(C.{2,6}|D[0-4][0-9].{0,4})"}
-                xAxisTitle="Diagnoses count"
-                yAxisTitle="ICD-10-Codes"
-                backgroundColor={barChartBackgroundColors}
-              ></lens-chart>
-            </div>
+        <lens-chart
+          title="Diagnoses"
+          dataKey="diagnosis"
+          chartType="bar"
+          indexAxis="y"
+          groupingDivider="."
+          groupingLabel=".%"
+          filterRegex={"^(C.{2,6}|D[0-4][0-9].{0,4})"}
+          xAxisTitle="Diagnoses count"
+          yAxisTitle="ICD-10-Codes"
+          backgroundColor={barChartBackgroundColors}
+        ></lens-chart>
+      </div>
       <div class="chart-wrapper chart-age-distribution">
         <lens-chart
           title="Age at first diagnosis"

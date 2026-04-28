@@ -11390,27 +11390,27 @@
     "system": "",
     "key": "medicationStatement",
     "name": "Treatment of tumor",
-        "criteria": [
-          {
-            "key": "CH",
-            "name": "Chemotherapy"
-          },
-          {
-            "key": "HO",
-            "name": "Hormone therapy"
-          },
-          {
-            "key": "IM",
-            "name": "Immunotherapy"
-          },
-          {
-            "key": "SC",
-            "name": "Bone marrow Transplant"
-          },
-          {
-            "key": "TA",
-            "name": "Monoclonal Antibodies"
-          }
+    "criteria": [
+      {
+        "key": "CH",
+        "name": "Chemotherapy"
+      },
+      {
+        "key": "HO",
+        "name": "Hormone therapy"
+      },
+      {
+        "key": "IM",
+        "name": "Immunotherapy"
+      },
+      {
+        "key": "SC",
+        "name": "Bone marrow Transplant"
+      },
+      {
+        "key": "TA",
+        "name": "Monoclonal Antibodies"
+      }
     ]
   },
   {
