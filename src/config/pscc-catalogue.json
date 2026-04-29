@@ -50,6 +50,10 @@
           {
             "key": "deceased",
             "name": "Deceased"
+          },
+          {
+            "key": "unbekannt",
+            "name": "Unknown"
           }
         ]
       }
