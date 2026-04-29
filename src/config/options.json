@@ -24,6 +24,29 @@
         "\"Alive\": is assumed if no date of death is documented or the current age has not exceeded 123 years.",
         "\"Unknown\": No date of birth or death known."
       ]
+    },
+    "therapy_of_tumor": {
+      "hintText": [
+        "For patients with multiple oncological diagnoses, entries may also be displayed that do not necessarily match the selected search criteria."
+      ],
+      "aggregations": ["medicationStatements"],
+      "tooltips": {
+        "OP": "Operations",
+        "RT": "Radiation Therapies",
+        "medicationStatements": "Systemic Therapies"
+      }
+    },
+    "medicationStatements": {
+      "hintText": [
+        "The type of systemic or watchful waiting therapy is displayed. For patients with multiple oncological diagnoses, entries may also be displayed that do not necessarily match the selected search criteria."
+      ],
+      "tooltips": {
+        "CH": "Chemotherapy",
+        "HO": "Hormone Therapy",
+        "IM": "Immunotherapy/Antibody Therapy",
+        "ZS": "Hormone Therapy",
+        "SO": "Targeted Therapies"
+      }
     }
   },
   "tableOptions": {

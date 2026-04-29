@@ -62,25 +62,13 @@
     "fieldType": "group",
     "childCategories": [
       {
-        "key": "diagnosis",
-        "name": "ICD-10 Code",
-        "fieldType": "single-select",
-        "type": "EQUALS",
-        "system": "http://hl7.org/fhir/sid/icd-10",
-        "criteria": [
-          {
-            "key": "C50.919",
-            "name": "C50.919 (Breast)"
-          },
-          {
-            "key": "C34.90",
-            "name": "C34.90 (Lung)"
-          },
-          {
-            "key": "C61",
-            "name": "C61 (Prostate)"
-          }
-        ]
+        "key": "year_of_diagnosis",
+        "name": "Year of Diagnosis",
+        "system": "",
+        "fieldType": "number",
+        "type": "BETWEEN",
+        "min": 1900,
+        "max": 2040
       },
       {
         "key": "age_at_diagnosis",
@@ -122,37 +110,55 @@
     ]
   },
   {
-    "key": "systemic_therapy",
-    "name": "Systemic Therapy",
-    "profile": "https://simplifier.net/PSCC-Test/StructureDefinition/SystemicTherapy",
     "fieldType": "group",
+    "key": "therapy_of_tumor",
+    "name": "Therapy of tumor",
     "childCategories": [
       {
-        "key": "medicationStatement",
-        "name": "Therapy Type",
         "fieldType": "single-select",
+        "key": "procedure",
+        "name": "Operation / Radiotherapy",
+        "system": "",
         "type": "EQUALS",
-        "system": "https://simplifier.net/PSCC-Test/ValueSet/TreatmentType",
         "criteria": [
           {
-            "key": "chemotherapy",
-            "name": "Chemotherapy"
+            "key": "OP",
+            "name": "Operation"
           },
           {
-            "key": "radiotherapy",
+            "key": "RT",
             "name": "Radiotherapy"
-          },
-          {
-            "key": "immunotherapy",
-            "name": "Immunotherapy"
           }
         ]
       },
       {
-        "key": "treatment_period",
-        "name": "Treatment Period",
-        "fieldType": "date-range",
-        "type": "BETWEEN"
+        "fieldType": "single-select",
+        "key": "medicationStatement",
+        "name": "Other Therapies",
+        "system": "",
+        "type": "EQUALS",
+        "criteria": [
+          {
+            "key": "CH",
+            "name": "Chemotherapy"
+          },
+          {
+            "key": "HO",
+            "name": "Hormone therapy"
+          },
+          {
+            "key": "IM",
+            "name": "Immunotherapy"
+          },
+          {
+            "key": "ZS",
+            "name": "Targeted therapy"
+          },
+          {
+            "key": "SO",
+            "name": "Other therapies"
+          }
+        ]
       }
     ]
   },

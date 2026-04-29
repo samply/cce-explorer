@@ -207,7 +207,7 @@
         <lens-chart
           title="Sex"
           dataKey="gender"
-          filterRegex={"^(male|female)$"}
+          filterRegex="^(male|female)$"
           chartType="pie"
           displayLegends={true}
         ></lens-chart>
@@ -235,6 +235,52 @@
           filterRegex="^(([0-9]?[0-9]$)|(1[0-2]0))"
           xAxisTitle="Age"
           yAxisTitle="Primary diagnoses count"
+          backgroundColor={barChartBackgroundColors}
+        ></lens-chart>
+      </div>
+      <div class="chart-wrapper">
+        <lens-chart
+          title="Vital Status*"
+          dataKey={VITAL_STATUS_LOINC_CODE}
+          chartType="pie"
+          displayLegends={true}
+          backgroundColor={barChartBackgroundColors}
+        >
+          <div>
+            "Deceased" indicates that a date of death has been recorded. The
+            other values in this overview have not been harmonized yet.
+          </div>
+        </lens-chart>
+      </div>
+      <div class="chart-wrapper">
+        <lens-chart
+          title="Specimen"
+          dataKey="sample_kind"
+          chartType="bar"
+          xAxisTitle="Types of Specimen"
+          yAxisTitle="Specimen count"
+          backgroundColor={barChartBackgroundColors}
+        >
+        </lens-chart>
+      </div>
+      <div class="chart-wrapper">
+        <lens-chart
+          title="Type of Therapy"
+          dataKey="therapy_of_tumor"
+          chartType="bar"
+          headers={therapyHeaders}
+          xAxisTitle="Type of Therapy"
+          yAxisTitle="Therapy count"
+          backgroundColor={barChartBackgroundColors}
+        ></lens-chart>
+      </div>
+      <div class="chart-wrapper">
+        <lens-chart
+          title="Systemic Therapies"
+          dataKey="MedicationType"
+          chartType="bar"
+          xAxisTitle="Type of Therapy"
+          yAxisTitle="Therapy count"
           backgroundColor={barChartBackgroundColors}
         ></lens-chart>
       </div>
