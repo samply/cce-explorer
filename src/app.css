@@ -106,7 +106,11 @@ header {
 }
 
 .logo-gr img {
-  height: 80px;
+  height: 65px;
+}
+
+.logo-foch img {
+  height: 70px;
 }
 
 .header-right {
@@ -228,7 +232,7 @@ info-icon {
 }
 
 .chart-age-distribution {
-  grid-column: span 4;
+  grid-column: span 3;
 }
 
 .sample-information-text {
@@ -271,7 +275,7 @@ info-icon {
 
 footer {
   display: grid;
-  gap:40px;
+  gap: 40px;
   align-items: center;
   grid-template-columns: auto 1fr auto;
   padding: var(--gap-s);

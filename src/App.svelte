@@ -130,6 +130,11 @@
           <img src="logo-PSCC-GR.svg" alt="Gustave Roussy" />
         </a>
       </div>
+      <div class="logo-foch">
+        <a href="https://www.hopital-foch.com/" target="_blank">
+          <img src="logo-PSCC-foch.svg" alt="Hôpital Foch" />
+        </a>
+      </div>
     </div>
   </div>
 </header>
@@ -202,9 +207,23 @@
         <lens-chart
           title="Sex"
           dataKey="gender"
-          filterRegex={"^(male|female)$"}
+          filterRegex="^(male|female)$"
           chartType="pie"
           displayLegends={true}
+        ></lens-chart>
+      </div>
+      <div class="chart-wrapper chart-diagnosis">
+        <lens-chart
+          title="Diagnoses"
+          dataKey="diagnosis"
+          chartType="bar"
+          indexAxis="y"
+          groupingDivider="."
+          groupingLabel=".%"
+          filterRegex={"^(C.{2,6}|D[0-4][0-9].{0,4})"}
+          xAxisTitle="Diagnoses count"
+          yAxisTitle="ICD-10-Codes"
+          backgroundColor={barChartBackgroundColors}
         ></lens-chart>
       </div>
       <div class="chart-wrapper chart-age-distribution">
@@ -216,6 +235,52 @@
           filterRegex="^(([0-9]?[0-9]$)|(1[0-2]0))"
           xAxisTitle="Age"
           yAxisTitle="Primary diagnoses count"
+          backgroundColor={barChartBackgroundColors}
+        ></lens-chart>
+      </div>
+      <div class="chart-wrapper">
+        <lens-chart
+          title="Vital Status*"
+          dataKey={VITAL_STATUS_LOINC_CODE}
+          chartType="pie"
+          displayLegends={true}
+          backgroundColor={barChartBackgroundColors}
+        >
+          <div>
+            "Deceased" indicates that a date of death has been recorded. The
+            other values in this overview have not been harmonized yet.
+          </div>
+        </lens-chart>
+      </div>
+      <div class="chart-wrapper">
+        <lens-chart
+          title="Specimen"
+          dataKey="sample_kind"
+          chartType="bar"
+          xAxisTitle="Types of Specimen"
+          yAxisTitle="Specimen count"
+          backgroundColor={barChartBackgroundColors}
+        >
+        </lens-chart>
+      </div>
+      <div class="chart-wrapper">
+        <lens-chart
+          title="Type of Therapy"
+          dataKey="therapy_of_tumor"
+          chartType="bar"
+          headers={therapyHeaders}
+          xAxisTitle="Type of Therapy"
+          yAxisTitle="Therapy count"
+          backgroundColor={barChartBackgroundColors}
+        ></lens-chart>
+      </div>
+      <div class="chart-wrapper">
+        <lens-chart
+          title="Systemic Therapies"
+          dataKey="MedicationType"
+          chartType="bar"
+          xAxisTitle="Type of Therapy"
+          yAxisTitle="Therapy count"
           backgroundColor={barChartBackgroundColors}
         ></lens-chart>
       </div>
