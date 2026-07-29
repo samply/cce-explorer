@@ -5,6 +5,7 @@ import {
   getHumanReadableQuery,
   getOptions,
 } from "@samply/lens";
+import { env } from "$env/dynamic/public";
 import { v4 as uuidv4 } from "uuid";
 
 type PmBody = {
@@ -80,17 +81,19 @@ async function sendRequestToProjectManager(
   collectionIds: string[],
   selectedSites: string[],
 ): Promise<ProjectManagerResponse> {
-  let temporaryToken: string | null = "";
+  let temporaryToken: string | null = null;
 
-  try {
-    const response = await fetch("/oauth2/auth", {
-      method: "GET",
-      credentials: "include",
-    });
-    temporaryToken = response.headers.get("Authorization");
-  } catch (error) {
-    console.error("Failed to obtain an OAuth token", error);
-    return new Response() as ProjectManagerResponse;
+  if (env.PUBLIC_OAUTH2_AUTH_URL) {
+    try {
+      const response = await fetch(env.PUBLIC_OAUTH2_AUTH_URL, {
+        method: "GET",
+        credentials: "include",
+      });
+      temporaryToken = response.headers.get("Authorization");
+    } catch (error) {
+      console.error("Failed to obtain an OAuth token", error);
+      return new Response() as ProjectManagerResponse;
+    }
   }
 
   const negotiationPartners = collectionIds.join(",");
@@ -102,15 +105,18 @@ async function sendRequestToProjectManager(
     projectCode,
   );
   const projectManagerUrl = projectCode ? editProjectUrl : newProjectUrl;
+  const headers: Record<string, string> = {
+    returnAccept: "application/json; charset=utf-8",
+    "Content-Type": "application/json",
+  };
+  if (temporaryToken) {
+    headers.Authorization = temporaryToken;
+  }
 
   try {
     return await fetch(projectManagerUrl, {
       method: projectCode ? "PUT" : "POST",
-      headers: {
-        returnAccept: "application/json; charset=utf-8",
-        "Content-Type": "application/json",
-        Authorization: temporaryToken ?? "",
-      },
+      headers,
       body: buildProjectManagerBody(
         humanReadable,
         negotiationPartners,

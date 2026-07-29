@@ -4,7 +4,8 @@ services:
     ports:
       - "3000:3000"
     environment:
-      # PUBLIC_ENVIRONMENT: ${PUBLIC_ENVIRONMENT}
+      PUBLIC_ENVIRONMENT: ${PUBLIC_ENVIRONMENT}
+      PUBLIC_OAUTH2_AUTH_URL: ${OAUTH2_AUTH_URL:-}
       PUBLIC_SPOT_URL: http://localhost:8055
 
   spot:
