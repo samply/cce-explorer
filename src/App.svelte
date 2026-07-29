@@ -276,7 +276,7 @@
       <div class="chart-wrapper result-summary">
         <lens-result-summary></lens-result-summary>
         {#if env.PUBLIC_ENVIRONMENT === "test"}
-          <lens-negotiate-button type="ProjectManager" title="Data requests"
+          <lens-negotiate-button type="ProjectManager" title="Request Data"
           ></lens-negotiate-button>
         {/if}
         <lens-search-modified-display>
