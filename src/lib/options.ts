@@ -8,13 +8,7 @@ export type Options = LensOptions & {
   projectManagerOptions?: ProjectManagerOptions;
 };
 
-export type ProjectManagerOptionsSiteMapping = {
-  site: string;
-  collection: string;
-};
-
 export type ProjectManagerOptions = {
   newProjectUrl: string;
   editProjectUrl: string;
-  siteMappings: ProjectManagerOptionsSiteMapping[];
 };
