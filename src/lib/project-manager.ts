@@ -3,12 +3,10 @@ import {
   getQueryStore,
   getSelectedSites,
   getHumanReadableQuery,
+  getOptions,
 } from "@samply/lens";
-import { options } from "./env-options";
-import type {
-  ProjectManagerOptions,
-  ProjectManagerOptionsSiteMapping,
-} from "$lib/options";
+import { env } from "$env/dynamic/public";
+import { v4 as uuidv4 } from "uuid";
 
 type PmBody = {
   query: string;
@@ -17,139 +15,178 @@ type PmBody = {
   "human-readable": string;
   "project-code": string;
   "explorer-url": string;
+  "query-details": string;
 };
 
 type ProjectManagerResponse = Response & {
   redirect_uri?: string;
 };
 
+type ProjectManagerOptions = {
+  newProjectUrl: string;
+  editProjectUrl: string;
+};
+
+function isProjectManagerOptions(obj: unknown): obj is ProjectManagerOptions {
+  return (
+    typeof obj === "object" &&
+    obj !== null &&
+    "newProjectUrl" in obj &&
+    "editProjectUrl" in obj &&
+    typeof obj.newProjectUrl === "string" &&
+    typeof obj.editProjectUrl === "string"
+  );
+}
+
 export const negotiate = async (): Promise<void> => {
-  if (options.projectManagerOptions === undefined) {
-    console.error('"projectManagerOptions" is missing from the options');
+  const options = getOptions();
+  if (
+    !options ||
+    !isProjectManagerOptions(options.projectManagerOptions) ||
+    !options.siteMappings
+  ) {
+    console.error("Project Manager options not set");
     return;
   }
 
-  const humanReadable: string = getHumanReadableQuery();
-  const collections = options.projectManagerOptions.siteMappings.filter(
-    (mapping) => getSelectedSites().includes(mapping.site),
-  );
+  const humanReadable = getHumanReadableQuery();
+  const selectedSites = getSelectedSites();
+  const collectionIds = Object.entries(options.siteMappings)
+    .filter(([siteId]) => selectedSites.includes(siteId))
+    .map(([, siteInfo]) =>
+      typeof siteInfo === "object" ? siteInfo.collectionId : undefined,
+    )
+    .filter((collectionId) => collectionId !== undefined);
 
-  const response: ProjectManagerResponse = await sendRequestToProjectManager(
-    options.projectManagerOptions,
+  const response = await sendRequestToProjectManager(
+    options.projectManagerOptions.editProjectUrl,
+    options.projectManagerOptions.newProjectUrl,
     humanReadable,
-    collections,
+    collectionIds,
+    selectedSites,
   );
 
   if (!response.redirect_uri) {
-    console.error("ProjectManager response does not contain redirect uri");
+    console.error("Project Manager response does not contain a redirect URI");
     return;
   }
 
   window.location.href = response.redirect_uri;
 };
 
-/**
- * handle redirect to project manager url
- */
-//     // project manager
-
-/**
- * @param currentProjectManagerOptions the current project manager options
- * @param humanReadable a human readable query string to view in the negotiator project
- * @param collections the collections to negotiate with
- * @returns a promise containing the response from the project manager. The response contains the redirect uri
- */
 async function sendRequestToProjectManager(
-  currentProjectManagerOptions: ProjectManagerOptions,
+  editProjectUrl: string,
+  newProjectUrl: string,
   humanReadable: string,
-  collections: ProjectManagerOptionsSiteMapping[],
+  collectionIds: string[],
+  selectedSites: string[],
 ): Promise<ProjectManagerResponse> {
-  /**
-   * get temporary token from oauth2
-   */
-  let temporaryToken: string | null = "";
+  let temporaryToken: string | null = null;
 
-  try {
-    const res = await fetch(`/oauth2/auth`, {
-      method: "GET",
-      credentials: "include",
-    });
-
-    temporaryToken = res.headers.get("Authorization");
-  } catch (error) {
-    console.log("error", error);
-    return new Response() as Response & { redirect_uri: string };
+  if (env.PUBLIC_OAUTH2_AUTH_URL) {
+    try {
+      const response = await fetch(env.PUBLIC_OAUTH2_AUTH_URL, {
+        method: "GET",
+        credentials: "include",
+      });
+      temporaryToken = response.headers.get("Authorization");
+    } catch (error) {
+      console.error("Failed to obtain an OAuth token", error);
+      return new Response() as ProjectManagerResponse;
+    }
   }
 
-  const negotiationPartners = collections
-    .map((collection) => collection.collection.toLocaleLowerCase())
-    .join(",");
-  const returnURL: string = `${window.location.protocol}//${window.location.host}/?collections=${negotiationPartners}`;
-  const urlParams: URLSearchParams = new URLSearchParams(
-    window.location.search,
+  const negotiationPartners = collectionIds.join(",");
+  const urlParams = new URLSearchParams(window.location.search);
+  const projectCode = urlParams.get("project-code");
+  const returnUrl = buildExplorerUrl(
+    negotiationPartners,
+    selectedSites,
+    projectCode,
   );
-
-  const projectCode: string | null = urlParams.get("project-code");
-  const negotiateUrl = projectCode
-    ? currentProjectManagerOptions.editProjectUrl
-    : currentProjectManagerOptions.newProjectUrl;
-
-  let response!: ProjectManagerResponse;
-
-  /**
-   * send request to project manager
-   * Explorer IDS = Options Struktur = lens-<standortname>
-   */
-
-  const pmRequestUrl = `${negotiateUrl}`;
+  const projectManagerUrl = projectCode ? editProjectUrl : newProjectUrl;
+  const headers: Record<string, string> = {
+    returnAccept: "application/json; charset=utf-8",
+    "Content-Type": "application/json",
+  };
+  if (temporaryToken) {
+    headers.Authorization = temporaryToken;
+  }
 
   try {
-    response = await fetch(pmRequestUrl, {
-      method: "POST",
-      headers: {
-        returnAccept: "application/json; charset=utf-8",
-        "Content-Type": "application/json",
-        Authorization: temporaryToken ? temporaryToken : "",
-      },
-      body: buildPMBody(
+    return await fetch(projectManagerUrl, {
+      method: projectCode ? "PUT" : "POST",
+      headers,
+      body: buildProjectManagerBody(
         humanReadable,
         negotiationPartners,
-        returnURL,
-        projectCode ? projectCode : "",
+        returnUrl,
+        projectCode ?? "",
       ),
     }).then((response) => response.json());
-
-    return response;
   } catch (error) {
-    console.log("error", error);
+    console.error("Project Manager request failed", error);
     return new Response() as ProjectManagerResponse;
   }
 }
 
-/**
- * @param humanReadable the human readable string of the query
- * @param negotiationPartners all the selected sites in a string with , separated
- * @param returnURL the url to return to lens
- * @param projectCode if the project already exists
- * @returns a base64 encoded CQL query
- */
-function buildPMBody(
+function buildProjectManagerBody(
   humanReadable: string,
   negotiationPartners: string,
-  returnURL: string,
+  returnUrl: string,
   projectCode: string,
 ): string {
+  const base64Encode = (utf8String: string) =>
+    btoa(String.fromCharCode(...new TextEncoder().encode(utf8String)));
+
+  const queryDetails = base64Encode(JSON.stringify(getQueryStore()));
   const body: PmBody = {
-    query: JSON.stringify(getAst()),
+    query: base64Encode(
+      JSON.stringify({
+        lang: "ast",
+        payload: base64Encode(JSON.stringify({ ast: getAst(), id: uuidv4() })),
+      }),
+    ),
     "explorer-ids": negotiationPartners,
-    "query-format": "CQL_DATA",
+    "query-format": "AST_DATA",
     "human-readable": humanReadable,
     "project-code": projectCode,
-    "explorer-url":
-      returnURL +
-      projectCode +
-      "&query=" +
-      btoa(JSON.stringify(getQueryStore())),
+    "explorer-url": addQueryToExplorerUrl(returnUrl, queryDetails),
+    "query-details": queryDetails,
   };
+
   return JSON.stringify(body);
+}
+
+/**
+ * Build the URL used to return from Project Manager. Lens restores the selected
+ * bridgeheads from the base64-encoded `datarequests` URL parameter.
+ */
+function buildExplorerUrl(
+  negotiationPartners: string,
+  selectedSites: string[],
+  projectCode: string | null,
+): string {
+  const url = new URL(window.location.pathname, window.location.origin);
+  url.searchParams.set("collections", negotiationPartners);
+  url.searchParams.set(
+    "datarequests",
+    btoa(
+      String.fromCharCode(
+        ...new TextEncoder().encode(JSON.stringify(selectedSites)),
+      ),
+    ),
+  );
+
+  if (projectCode) {
+    url.searchParams.set("project-code", projectCode);
+  }
+
+  return url.toString();
+}
+
+function addQueryToExplorerUrl(returnUrl: string, query: string): string {
+  const url = new URL(returnUrl);
+  url.searchParams.set("query", query);
+  return url.toString();
 }

@@ -13,10 +13,11 @@
   import { v4 as uuidv4 } from "uuid";
   import { VITAL_STATUS_LOINC_CODE } from "$lib/constants";
   import { negotiate } from "./lib/project-manager";
-  import { options } from "./lib/env-options";
   import { onMount } from "svelte";
   import { SvelteMap } from "svelte/reactivity";
   import catalogueProd from "./config/catalogue.json";
+  import optionsProd from "./config/options.json";
+  import optionsTest from "./config/options-test.json";
   import { env } from "$env/dynamic/public";
 
   let abortController = new AbortController();
@@ -125,8 +126,13 @@
   });
 
   onMount(() => {
-    let newoptions: LensOptions = options;
-    newoptions.spotUrl = env.PUBLIC_SPOT_URL;
+    let options: LensOptions = optionsProd;
+    if (env.PUBLIC_ENVIRONMENT === "test") {
+      options = optionsTest;
+    }
+    if (env.PUBLIC_SPOT_URL) {
+      options.spotUrl = env.PUBLIC_SPOT_URL;
+    }
     setOptions(options);
 
     // Set the catalogue based on the environment
@@ -269,10 +275,8 @@
     <div class="charts">
       <div class="chart-wrapper result-summary">
         <lens-result-summary></lens-result-summary>
-        {#if options.projectManagerOptions}
-          <lens-negotiate-button
-            type="ProjectManager"
-            title="Data and sample requests"
+        {#if env.PUBLIC_ENVIRONMENT === "test"}
+          <lens-negotiate-button type="ProjectManager" title="Request Data"
           ></lens-negotiate-button>
         {/if}
         <lens-search-modified-display>
