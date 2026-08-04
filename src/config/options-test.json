@@ -92,7 +92,7 @@
     ]
   },
   "projectManagerOptions": {
-    "newProjectUrl": "https://e260-serv-13/requester-api/create-query-and-design-project",
-    "editProjectUrl": "https://e260-serv-13/requester-api/project/edit"
+    "newProjectUrl": "https://cce-central.vms.verbis.dkfz.de/requester-api/create-query-and-design-project",
+    "editProjectUrl": "https://cce-central.vms.verbis.dkfz.de/requester-api/project/edit"
   }
 }
