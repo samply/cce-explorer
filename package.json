@@ -36,6 +36,6 @@
   },
   "dependencies": {
     "@samply/lens": "^0.6.6",
-    "uuid": "^14.0.1"
+    "uuid": "^14.0.2"
   }
 }
