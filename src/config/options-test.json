@@ -2,14 +2,38 @@
   "language": "en",
   "siteMappings": {
     "proxy2": "proxy2",
-    "cce-dkfz": "🇩🇪 German Cancer Research Center (Test)",
-    "cce-dkfz-nct": "🇩🇪 German Cancer Research Center",
-    "cce-gr": "🇫🇷 Gustave Roussy",
-    "cce-ki": "🇸🇪 Karolinska Institutet",
-    "cce-nki": "🇳🇱 Netherlands Cancer Institute",
-    "cce-vhio": "🇪🇸 Vall d'Hebron Institute of Oncology",
-    "cce-cruk-cc": "🇬🇧 Cancer Research UK Cambridge Center (Prod)",
-    "cce-cruk-cc-dev": "🇬🇧 Cancer Research UK Cambridge Center"
+    "cce-dkfz": {
+      "displayName": "🇩🇪 German Cancer Research Center (Test)",
+      "collectionId": "lens-cce-dkfz"
+    },
+    "cce-master": {
+      "displayName": "🇩🇪 German Cancer Research Center",
+      "collectionId": "lens-cce-dkfz-nct"
+    },
+    "cce-gr": {
+      "displayName": "🇫🇷 Gustave Roussy",
+      "collectionId": "lens-cce-gr"
+    },
+    "cce-ki": {
+      "displayName": "🇸🇪 Karolinska Institutet",
+      "collectionId": "lens-cce-ki"
+    },
+    "cce-nki": {
+      "displayName": "🇳🇱 Netherlands Cancer Institute",
+      "collectionId": "lens-cce-nki"
+    },
+    "cce-vhio": {
+      "displayName": "🇪🇸 Vall d'Hebron Institute of Oncology",
+      "collectionId": "lens-cce-vhio"
+    },
+    "cce-cruk-cc": {
+      "displayName": "🇬🇧 Cancer Research UK Cambridge Center (Prod)",
+      "collectionId": "lens-cce-cruk-cc"
+    },
+    "cce-cruk-cc-dev": {
+      "displayName": "🇬🇧 Cancer Research UK Cambridge Center",
+      "collectionId": "lens-cce-cruk-cc-dev"
+    }
   },
   "chartOptions": {
     "gender": {
@@ -66,5 +90,9 @@
         "dataKey": "diagnosis"
       }
     ]
+  },
+  "projectManagerOptions": {
+    "newProjectUrl": "https://cce-central.vms.verbis.dkfz.de/requester-api/create-query-and-design-project",
+    "editProjectUrl": "https://cce-central.vms.verbis.dkfz.de/requester-api/project/edit"
   }
 }

@@ -13,10 +13,11 @@
   import { v4 as uuidv4 } from "uuid";
   import { VITAL_STATUS_LOINC_CODE } from "$lib/constants";
   import { negotiate } from "./lib/project-manager";
-  import { options } from "./lib/env-options";
   import { onMount } from "svelte";
   import { SvelteMap } from "svelte/reactivity";
   import catalogueProd from "./config/catalogue.json";
+  import optionsProd from "./config/options.json";
+  import optionsTest from "./config/options-test.json";
   import { env } from "$env/dynamic/public";
 
   let abortController = new AbortController();
@@ -125,8 +126,13 @@
   });
 
   onMount(() => {
-    let newoptions: LensOptions = options;
-    newoptions.spotUrl = env.PUBLIC_SPOT_URL;
+    let options: LensOptions = optionsProd;
+    if (env.PUBLIC_ENVIRONMENT === "test") {
+      options = optionsTest;
+    }
+    if (env.PUBLIC_SPOT_URL) {
+      options.spotUrl = env.PUBLIC_SPOT_URL;
+    }
     setOptions(options);
 
     // Set the catalogue based on the environment
@@ -186,31 +192,31 @@
   <div class="header-wrapper">
     <div class="logo">
       <a href="https://www.gustaveroussy.fr/" target="_blank">
-        <img src="../logo-CCE-GR.jpg" alt="Gustave Roussy" />
+        <img src="logo-CCE-GR.jpg" alt="Gustave Roussy" />
       </a>
     </div>
     <div class="logo">
       <a href="https://ki.se/en/" target="_blank">
-        <img src="../logo-CCE-KI.svg" alt="Karlosinska Institutet" />
+        <img src="logo-CCE-KI.svg" alt="Karlosinska Institutet" />
       </a>
     </div>
     <div class="logo">
       <a href="https://vhio.net/es/inicio/" target="_blank">
         <img
-          src="../logo-CCE-VHIO.png"
+          src="logo-CCE-VHIO.png"
           alt="Vall d’Hebron Instituto de Oncología"
         />
       </a>
     </div>
     <div class="logo">
       <a href="https://www.nki.nl/" target="_blank">
-        <img src="../logo-CCE-NKI.svg" alt="Netherlands Cancer Institute" />
+        <img src="logo-CCE-NKI.svg" alt="Netherlands Cancer Institute" />
       </a>
     </div>
     <div class="logo">
       <a href="https://www.istitutotumori.mi.it/" target="_blank">
         <img
-          src="../logo-CCE-INT.jpg"
+          src="logo-CCE-INT.jpg"
           alt="Fondazione IRCCS Istituto Nazionale dei Tumori"
         />
       </a>
@@ -218,14 +224,14 @@
     <div class="logo">
       <a href="https://crukcambridgecentre.org.uk/" target="_blank">
         <img
-          src="../logo-CCE-CRUK.png"
+          src="logo-CCE-CRUK.png"
           alt="Cancer Research UK Cambridge Centre"
         />
       </a>
     </div>
     <div class="logo">
       <a href="https://www.dkfz.de/en/" target="_blank">
-        <img src="../logo-CCE-DKFZ.svg" alt="German Cancer Research Center" />
+        <img src="logo-CCE-DKFZ.svg" alt="German Cancer Research Center" />
       </a>
     </div>
     <h1>CCE VDC Explorer</h1>
@@ -269,10 +275,8 @@
     <div class="charts">
       <div class="chart-wrapper result-summary">
         <lens-result-summary></lens-result-summary>
-        {#if options.projectManagerOptions}
-          <lens-negotiate-button
-            type="ProjectManager"
-            title="Data and sample requests"
+        {#if env.PUBLIC_ENVIRONMENT === "test"}
+          <lens-negotiate-button type="ProjectManager" title="Request Data"
           ></lens-negotiate-button>
         {/if}
         <lens-search-modified-display>
