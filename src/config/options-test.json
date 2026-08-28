@@ -10,6 +10,10 @@
       "displayName": "🇩🇪 German Cancer Research Center",
       "collectionId": "lens-cce-dkfz-nct"
     },
+    "cce-master": {
+      "displayName": "🇩🇪 German Cancer Research Center",
+      "collectionId": "lens-cce-master"
+    },
     "cce-gr": {
       "displayName": "🇫🇷 Gustave Roussy",
       "collectionId": "lens-cce-gr"
