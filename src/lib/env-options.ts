@@ -11,3 +11,13 @@ if (env.PUBLIC_ENVIRONMENT === "test") {
 if (env.PUBLIC_SPOT_URL) {
   options.spotUrl = env.PUBLIC_SPOT_URL;
 }
+if (options.projectManagerOptions) {
+  if (env.PUBLIC_PROJECT_MANAGER_NEW_URL) {
+    options.projectManagerOptions.newProjectUrl =
+      env.PUBLIC_PROJECT_MANAGER_NEW_URL;
+  }
+  if (env.PUBLIC_PROJECT_MANAGER_EDIT_URL) {
+    options.projectManagerOptions.editProjectUrl =
+      env.PUBLIC_PROJECT_MANAGER_EDIT_URL;
+  }
+}

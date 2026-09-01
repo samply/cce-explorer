@@ -1,6 +1,6 @@
 <script lang="ts">
   import "./app.css";
-  import type { Catalogue, LensOptions, SpotResult } from "@samply/lens";
+  import type { Catalogue, SpotResult } from "@samply/lens";
   import {
     setOptions,
     setCatalogue,
@@ -16,8 +16,7 @@
   import { onMount } from "svelte";
   import { SvelteMap } from "svelte/reactivity";
   import catalogueProd from "./config/catalogue.json";
-  import optionsProd from "./config/options.json";
-  import optionsTest from "./config/options-test.json";
+  import { options } from "./lib/env-options";
   import { env } from "$env/dynamic/public";
 
   let abortController = new AbortController();
@@ -126,13 +125,6 @@
   });
 
   onMount(() => {
-    let options: LensOptions = optionsProd;
-    if (env.PUBLIC_ENVIRONMENT === "test") {
-      options = optionsTest;
-    }
-    if (env.PUBLIC_SPOT_URL) {
-      options.spotUrl = env.PUBLIC_SPOT_URL;
-    }
     setOptions(options);
 
     // Set the catalogue based on the environment
