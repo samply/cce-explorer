@@ -159,6 +159,12 @@
     document.body.removeChild(a);
   };
 
+  const projectManagerButtonTitle = new URLSearchParams(
+    window.location.search,
+  ).has("project-code")
+    ? "Edit data request"
+    : "Request data";
+
   let catalogueOpen: boolean = false;
 
   // const barChartBackgroundColors: string[] = ["#4dc9f6", "#3da4c7"];
@@ -268,7 +274,9 @@
       <div class="chart-wrapper result-summary">
         <lens-result-summary></lens-result-summary>
         {#if env.PUBLIC_ENVIRONMENT === "test"}
-          <lens-negotiate-button type="ProjectManager" title="Request Data"
+          <lens-negotiate-button
+            type="ProjectManager"
+            title={projectManagerButtonTitle}
           ></lens-negotiate-button>
         {/if}
         <lens-search-modified-display>
