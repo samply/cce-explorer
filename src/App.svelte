@@ -201,7 +201,7 @@
     <div class="logo">
       <a href="https://vhio.net/es/inicio/" target="_blank">
         <img
-          src="../logo-CCE-VHIO.png"
+          src="../logo-CCE-VHIO.jpg"
           alt="Vall d’Hebron Instituto de Oncología"
         />
       </a>
@@ -232,7 +232,9 @@
         <img src="../logo-CCE-DKFZ.svg" alt="German Cancer Research Center" />
       </a>
     </div>
-    <h1>CCE VDC Explorer</h1>
+    <h1>
+      <a href="http://explorer.cce.dkfz.de/">CCE VDC Explorer</a>
+    </h1>
   </div>
 </header>
 <main>
