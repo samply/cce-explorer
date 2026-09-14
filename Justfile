@@ -8,5 +8,8 @@ beautify:
 build:
     npm run build
 
-run: clean beautify build
+run: clean build
     npm run dev
+
+# beautify-run: clean beautify build
+#     npm run dev
