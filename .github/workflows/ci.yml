@@ -9,8 +9,10 @@ jobs:
   linting:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
       - run: npm ci
       - run: npx prettier --check .
       - run: npx eslint .
@@ -25,7 +27,7 @@ jobs:
       #push-to: auto
       #build-context: '.'
       #build-file: './Dockerfile'
-      #build-platforms: "linux/amd64"
+      build-platforms: "linux/amd64"
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
