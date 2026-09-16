@@ -91,15 +91,32 @@ header {
 .header-wrapper {
   background-color: var(--white);
   padding: var(--gap-xs);
-  display: grid;
+  display: flex;
   align-items: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: var(--gap-xs);
   border-radius: var(--border-radius-small);
   border: solid 1px var(--lightest-gray);
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.header-wrapper > * + * {
+  border-left: solid 1px var(--light-gray);
+  padding-left: var(--gap-xs);
+}
+
 .logo img {
-  height: 60px;
+  height: 90px;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .logo-dkfz {
@@ -114,8 +131,20 @@ header h1 {
   text-align: center;
   font-size: var(--font-size-xxl);
   font-weight: lighter;
-  color: var(--blue);
   margin: 0;
+}
+
+header h1 a {
+  color: var(--blue);
+  font-size: 40px;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+header h1 a:hover,
+header h1 a:focus-visible {
+  color: var(--dark-blue);
 }
 
 /* .grid,
@@ -128,7 +157,7 @@ footer {
   background-color: var(--ghost-white);
   position: sticky;
   position: -webkit-sticky;
-  top: 86px;
+  top: 132px;
   z-index: 1;
 }
 
@@ -182,7 +211,7 @@ info-icon {
   overflow-y: scroll;
   height: calc(100vh - 226px);
   position: sticky;
-  top: 153px;
+  top: 199px;
 }
 
 .catalogue h2 {

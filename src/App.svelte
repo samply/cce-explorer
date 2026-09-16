@@ -194,11 +194,6 @@
       </a>
     </div>
     <div class="logo">
-      <a href="https://ki.se/en/" target="_blank">
-        <img src="../logo-CCE-KI.svg" alt="Karlosinska Institutet" />
-      </a>
-    </div>
-    <div class="logo">
       <a href="https://vhio.net/es/inicio/" target="_blank">
         <img
           src="../logo-CCE-VHIO.jpg"
@@ -207,8 +202,8 @@
       </a>
     </div>
     <div class="logo">
-      <a href="https://www.nki.nl/" target="_blank">
-        <img src="../logo-CCE-NKI.svg" alt="Netherlands Cancer Institute" />
+      <a href="https://ki.se/en/" target="_blank">
+        <img src="../logo-CCE-KI.svg" alt="Karlosinska Institutet" />
       </a>
     </div>
     <div class="logo">
@@ -217,6 +212,14 @@
           src="../logo-CCE-INT.jpg"
           alt="Fondazione IRCCS Istituto Nazionale dei Tumori"
         />
+      </a>
+    </div>
+    <h1>
+      <a href="http://explorer.cce.dkfz.de/">CCE VDC Explorer</a>
+    </h1>
+    <div class="logo">
+      <a href="https://www.nki.nl/" target="_blank">
+        <img src="../logo-CCE-NKI.svg" alt="Netherlands Cancer Institute" />
       </a>
     </div>
     <div class="logo">
@@ -232,9 +235,6 @@
         <img src="../logo-CCE-DKFZ.svg" alt="German Cancer Research Center" />
       </a>
     </div>
-    <h1>
-      <a href="http://explorer.cce.dkfz.de/">CCE VDC Explorer</a>
-    </h1>
   </div>
 </header>
 <main>
