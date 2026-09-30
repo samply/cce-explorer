@@ -1,25 +1,17 @@
+/* Subset of Noto Color Emoji: only the site flags and the footer's ♥ */
 @font-face {
   font-family: "Noto Color Emoji";
-  src: url("/fonts/Noto_Color_Emoji/NotoColorEmoji-Regular.ttf")
-    format("truetype");
-  font-weight: 400;
-  font-style: normal;
+  src: url("/fonts/Noto_Color_Emoji/NotoColorEmoji-FlagsHeart.woff2")
+    format("woff2");
   font-display: swap;
-  unicode-range:
-    U+1F1E6-1F1FF, U+1F300-1F9FF, U+1F000-1F64F, U+1F680-1F6FF, U+2600-27BF;
+  unicode-range: U+1F1E6-1F1FF, U+2665;
 }
 
-/*
-* Chart.js (inside lens-chart) draws on a canvas with its own default font,
-* "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif", so it never uses the
-* emoji font above. Windows has no flag glyphs, so site flags showed as
-* letters ("DE"). Map only the flag characters of the first Chart.js font
-* to the emoji font.
-*/
+/* Chart.js canvases use their own font ("Helvetica Neue", …); Windows has no flag glyphs */
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/fonts/Noto_Color_Emoji/NotoColorEmoji-Regular.ttf")
-    format("truetype");
+  src: url("/fonts/Noto_Color_Emoji/NotoColorEmoji-FlagsHeart.woff2")
+    format("woff2");
   font-display: swap;
   unicode-range: U+1F1E6-1F1FF;
 }
@@ -95,11 +87,7 @@ button {
   font-family: inherit;
 }
 
-/*
-* lens-result-table's shadow DOM sets its own Tailwind font stack on :host,
-* which lists "Segoe UI Emoji" (no flags on Windows) before "Noto Color Emoji".
-* Styles on the host element from outside win over :host.
-*/
+/* Override the Tailwind font stack in lens-result-table's shadow DOM */
 lens-result-table {
   font-family: var(--font-family);
 }
