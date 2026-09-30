@@ -9,6 +9,21 @@
     U+1F1E6-1F1FF, U+1F300-1F9FF, U+1F000-1F64F, U+1F680-1F6FF, U+2600-27BF;
 }
 
+/*
+* Chart.js (inside lens-chart) draws on a canvas with its own default font,
+* "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif", so it never uses the
+* emoji font above. Windows has no flag glyphs, so site flags showed as
+* letters ("DE"). Map only the flag characters of the first Chart.js font
+* to the emoji font.
+*/
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("/fonts/Noto_Color_Emoji/NotoColorEmoji-Regular.ttf")
+    format("truetype");
+  font-display: swap;
+  unicode-range: U+1F1E6-1F1FF;
+}
+
 @font-face {
   font-family: "Open Sans";
   font-style: normal;
@@ -78,6 +93,15 @@ body {
 
 button {
   font-family: inherit;
+}
+
+/*
+* lens-result-table's shadow DOM sets its own Tailwind font stack on :host,
+* which lists "Segoe UI Emoji" (no flags on Windows) before "Noto Color Emoji".
+* Styles on the host element from outside win over :host.
+*/
+lens-result-table {
+  font-family: var(--font-family);
 }
 
 header {
