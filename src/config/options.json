@@ -1,12 +1,30 @@
 {
   "language": "en",
   "siteMappings": {
-    "cce-master": "🇩🇪 German Cancer Research Center",
-    "cce-gr": "🇫🇷 Gustave Roussy",
-    "cce-ki": "🇸🇪 Karolinska Institutet",
-    "cce-nki": "🇳🇱 Netherlands Cancer Institute",
-    "cce-vhio": "🇪🇸 Vall d'Hebron Institute of Oncology",
-    "cce-cruk-cc": "🇬🇧 Cancer Research UK Cambridge Center"
+    "cce-dkfz-nct": {
+      "displayName": "🇩🇪 German Cancer Research Center",
+      "collectionId": "lens-cce-dkfz-nct"
+    },
+    "cce-gr": {
+      "displayName": "🇫🇷 Gustave Roussy",
+      "collectionId": "lens-cce-gr"
+    },
+    "cce-ki": {
+      "displayName": "🇸🇪 Karolinska Institutet",
+      "collectionId": "lens-cce-ki"
+    },
+    "cce-nki": {
+      "displayName": "🇳🇱 Netherlands Cancer Institute",
+      "collectionId": "lens-cce-nki"
+    },
+    "cce-vhio": {
+      "displayName": "🇪🇸 Vall d'Hebron Institute of Oncology",
+      "collectionId": "lens-cce-vhio"
+    },
+    "cce-cruk-cc": {
+      "displayName": "🇬🇧 Cancer Research UK Cambridge Center",
+      "collectionId": "lens-cce-cruk-cc"
+    }
   },
   "chartOptions": {
     "gender": {
@@ -63,5 +81,9 @@
         "dataKey": "diagnosis"
       }
     ]
+  },
+  "projectManagerOptions": {
+    "newProjectUrl": "https://request.cce.dkfz.de/api/create-query-and-design-project",
+    "editProjectUrl": "https://request.cce.dkfz.de/api/project/edit"
   }
 }
