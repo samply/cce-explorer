@@ -1,29 +1,29 @@
 {
   "language": "en",
   "siteMappings": {
-    "cce-dkfz-nct": {
+    "dkfz-master": {
       "displayName": "🇩🇪 German Cancer Research Center",
-      "collectionId": "lens-cce-dkfz-nct"
+      "collectionId": "lens-dkfz-master"
     },
-    "cce-gr": {
+    "gustave-roussy": {
       "displayName": "🇫🇷 Gustave Roussy",
-      "collectionId": "lens-cce-gr"
+      "collectionId": "lens-gustave-roussy"
     },
-    "cce-ki": {
+    "karolinska": {
       "displayName": "🇸🇪 Karolinska Institutet",
-      "collectionId": "lens-cce-ki"
+      "collectionId": "lens-karolinska"
     },
-    "cce-nki": {
+    "nki": {
       "displayName": "🇳🇱 Netherlands Cancer Institute",
-      "collectionId": "lens-cce-nki"
+      "collectionId": "lens-nki"
     },
-    "cce-vhio": {
+    "vhio": {
       "displayName": "🇪🇸 Vall d'Hebron Institute of Oncology",
-      "collectionId": "lens-cce-vhio"
+      "collectionId": "lens-vhio"
     },
-    "cce-cruk-cc": {
+    "cruk-cc": {
       "displayName": "🇬🇧 Cancer Research UK Cambridge Center",
-      "collectionId": "lens-cce-cruk-cc"
+      "collectionId": "lens-cruk-cc"
     }
   },
   "chartOptions": {
