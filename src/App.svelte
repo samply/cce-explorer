@@ -17,7 +17,6 @@
   import { SvelteMap } from "svelte/reactivity";
   import catalogueProd from "./config/catalogue.json";
   import { options } from "./lib/env-options";
-  import { env } from "$env/dynamic/public";
 
   let abortController = new AbortController();
 
@@ -275,12 +274,10 @@
     <div class="charts">
       <div class="chart-wrapper result-summary">
         <lens-result-summary></lens-result-summary>
-        {#if env.PUBLIC_ENVIRONMENT === "test"}
-          <lens-negotiate-button
-            type="ProjectManager"
-            title={projectManagerButtonTitle}
-          ></lens-negotiate-button>
-        {/if}
+        <lens-negotiate-button
+          type="ProjectManager"
+          title={projectManagerButtonTitle}
+        ></lens-negotiate-button>
         <lens-search-modified-display>
           Charts no longer represent the current search!
         </lens-search-modified-display>

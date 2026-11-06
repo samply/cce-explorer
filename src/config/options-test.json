@@ -2,14 +2,6 @@
   "language": "en",
   "siteMappings": {
     "proxy2": "proxy2",
-    "cce-dkfz": {
-      "displayName": "🇩🇪 German Cancer Research Center (Test)",
-      "collectionId": "lens-cce-dkfz"
-    },
-    "cce-dkfz-nct": {
-      "displayName": "🇩🇪 German Cancer Research Center",
-      "collectionId": "lens-cce-dkfz-nct"
-    },
     "cce-master": {
       "displayName": "🇩🇪 German Cancer Research Center",
       "collectionId": "lens-cce-master"
@@ -29,10 +21,6 @@
     "cce-vhio": {
       "displayName": "🇪🇸 Vall d'Hebron Institute of Oncology",
       "collectionId": "lens-cce-vhio"
-    },
-    "cce-cruk-cc": {
-      "displayName": "🇬🇧 Cancer Research UK Cambridge Center (Prod)",
-      "collectionId": "lens-cce-cruk-cc"
     },
     "cce-cruk-cc-dev": {
       "displayName": "🇬🇧 Cancer Research UK Cambridge Center",
@@ -96,7 +84,7 @@
     ]
   },
   "projectManagerOptions": {
-    "newProjectUrl": "https://e260-serv-13/requester-api/create-query-and-design-project",
-    "editProjectUrl": "https://e260-serv-13/requester-api/project/edit"
+    "newProjectUrl": "https://request.cce.dkfz.de/api/create-query-and-design-project",
+    "editProjectUrl": "https://request.cce.dkfz.de/api/project/edit"
   }
 }
