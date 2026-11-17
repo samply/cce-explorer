@@ -132,6 +132,13 @@
     //   catalogue = catalogueTest as Catalogue;
     // }
     setCatalogue(catalogue);
+
+    // Run an empty search on page load
+    // The microtask is created to restore the query parameter if present
+    const timer = setTimeout(() => {
+      window.dispatchEvent(new CustomEvent("lens-search-triggered"));
+    }, 0);
+    return () => clearTimeout(timer);
   });
 
   const saveQuery = () => {
