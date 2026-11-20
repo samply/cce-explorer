@@ -131,4 +131,4 @@ flags are unsupported.
 
 After the fix is merged: delete (or archive) this file, and promote the
 "Chosen approach" section to
-`docs/adr/0002-country-flag-emoji-via-polyfill.md`.
+`docs/adr/0001-country-flag-emoji-via-polyfill.md`.
