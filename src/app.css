@@ -64,9 +64,12 @@
   --font-size-xl: 24px;
   --font-size-xxl: 32px;
 
+  /* "Twemoji Country Flags" is injected as @font-face by
+     country-flag-emoji-polyfill (+page.svelte) only on browsers that cannot
+     render flag emojis; the name is skipped everywhere else. */
   --font-family:
-    "Noto Color Emoji", "Open Sans", "Segoe UI Emoji", "Apple Color Emoji",
-    sans-serif;
+    "Twemoji Country Flags", "Noto Color Emoji", "Open Sans", "Segoe UI Emoji",
+    "Apple Color Emoji", sans-serif;
 }
 
 /**

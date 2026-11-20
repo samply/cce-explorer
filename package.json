@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@samply/lens": "^0.6.13",
+    "country-flag-emoji-polyfill": "^0.1.10",
     "uuid": "^14.0.2"
   }
 }

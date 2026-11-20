@@ -1,6 +1,52 @@
 # Task: Site flag emojis don't render in Chrome/Edge (Windows)
 
-Status: open · Created 2026-11-18
+Status: implemented, browser-verified · 2026-11-20 (Edge on Fedora
+Kinoite, Chrome on Windows — all site flags render)
+
+## Implementation log (2026-11-18)
+
+Changed:
+
+- `package.json`: added `country-flag-emoji-polyfill` ^0.1.10.
+- `src/routes/+page.svelte`: calls `polyfillCountryFlagEmojis("Twemoji
+Country Flags", "/fonts/TwemojiCountryFlags.woff2")` at startup —
+  unguarded because `ssr = false` in `+page.ts` makes it client-only.
+- `src/app.css`: prefixed `"Twemoji Country Flags"` onto
+  `--font-family`. The two Noto `@font-face` rules are untouched (the
+  footer ♥ is still served by the Noto subset).
+- `static/fonts/TwemojiCountryFlags.woff2` + `…-LICENSE.md`: self-hosted
+  copy of the polyfill font (78 kB), replacing the default jsdelivr URL.
+
+Verification actually run (2026-11-18, code checks):
+
+- `npm run lint` (prettier + eslint): pass — after `npm run format`
+  fixed comment wrapping in `app.css`.
+- `npm run check`: 0 errors, 0 warnings.
+- `bash scripts/validate-json-schema.bash`: valid.
+- `npm run build`: succeeds; the font lands in
+  `build/client/fonts/TwemojiCountryFlags.woff2`.
+
+Browser verification (2026-11-20, user):
+
+- Edge on Fedora Kinoite: all site flags render.
+- Chrome on Windows (the failing case that motivated the fix): all site
+  flags render.
+- Windows Firefox no-regression check (step 2, Network tab) not
+  explicitly run; the polyfill is a no-op there by design.
+
+Follow-ups if browser verification shows gaps:
+
+- Chart.js canvas labels still rely on the "Helvetica Neue"
+  `@font-face` hijack pointing at the Noto subset. If they do not
+  render in Windows Chrome/Edge, repoint that `src` at the
+  self-hosted Twemoji COLRv1 font (the format Chromium demonstrably
+  honors for emoji).
+- `node_modules/@samply/lens/dist/lens.css` hardcodes
+  `font-family:Inter,Avenir,Helvetica,Arial,sans-serif` (one
+  occurrence) and references `var(--font-family-inter)`, which is not
+  defined at document level — any lens surface that renders flags with
+  that stack needs a document-level override like the existing
+  `lens-result-table` one.
 
 ## Symptom
 
